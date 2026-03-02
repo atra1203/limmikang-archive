@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikang Lim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #262626; 
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #d1d1d1;
+        }
+        .artist-name {
+            font-family: 'Playfair Display', serif;
+            color: #c5a47e; /* 이미지 속 금색 톤 추출 */
+        }
+        .fade-in { animation: fadeIn 2s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen m-0">
+
+    <div class="text-center fade-in px-4">
+        <p class="text-sm md:text-base tracking-[0.3em] mb-2 opacity-80 uppercase">
+            Ceramic Artist
+        </p>
+        
+        <h1 class="artist-name text-4xl md:text-6xl mb-12 tracking-wide font-medium">
+            Mikang Lim
+        </h1>
+
+        <nav class="flex items-center justify-center space-x-4 text-sm md:text-base tracking-widest">
+            <a href="kor/main.html" class="hover:text-white transition-colors duration-300">
+                한 글
+            </a>
+            <span class="text-gray-600">|</span>
+            <a href="eng/main.html" class="hover:text-white transition-colors duration-300">
+                ENGLISH
+            </a>
+        </nav>
+    </div>
+
+</body>
+</html>

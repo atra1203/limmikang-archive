@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikang Lim - Ceramic Artist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+	<style>
+		body { 
+			font-family: 'Noto Serif KR', serif; 
+			/* rgba의 0.92를 0.95로 높여서 흰색을 좀 더 진하게 깔아 본문 가독성을 높입니다 */
+			background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('../homeimg/background_texture.jpg');
+			background-attachment: fixed;
+			background-size: cover;
+			background-position: center;
+			color: #5a5248; /* 글자색을 #7d7265보다 조금 더 진한 갈색으로 변경 */
+			line-height: 1.8; 
+		}
+
+        
+        /* 사이드바는 투명도를 조절하여 배경이 살짝 비치게 함 */
+        .sidebar { border-right: 1px solid rgba(0,0,0,0.05); background-color: rgba(255,255,255,0.3); }
+        
+		/* 한글로 볼 때 사이드바 메뉴 디자인 보정 */
+		.nav-link { 
+			font-size: 0.95rem;      /* 0.85rem에서 0.95rem으로 확대 */
+			letter-spacing: 0.05em;  /* 한글은 자간이 너무 넓으면 읽기 힘드므로 약간 축소 */
+			transition: all 0.3s; 
+			cursor: pointer; 
+			color: #8c8172; 
+			display: block; 
+			font-weight: 500;        /* 기본 두께를 약간 주어 선명하게 */
+		}
+
+		.nav-link:hover { 
+			color: #5a5248; 
+			transform: translateX(8px); /* 마우스 올렸을 때 움직임 폭 확대 */
+		}
+
+		.nav-link.active { 
+			color: #4a4238; 
+			font-weight: 700; 
+			border-left: 3px solid #AEA391; /* 강조 라인을 왼쪽으로 옮겨 더 깔끔하게 */
+			padding-left: 12px; 
+			margin-left: -15px; /* 라인 위치 조절 */
+		}
+        
+        .content-container { max-width: 900px; padding: 60px 40px; display: none; }
+        .content-container.active { display: block; animation: fadeIn 0.5s ease-in; }
+        
+        /* 섹션 타이틀 강조 */
+        .section-title { font-weight: bold; font-size: 1.15rem; margin-bottom: 2.5rem; letter-spacing: 0.15em; display: block; color: #5a5248; border-left: 3px solid #AEA391; padding-left: 15px; }
+        .sub-title { font-weight: bold; font-size: 1rem; margin-top: 3.5rem; margin-bottom: 1.2rem; display: block; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 8px; color: #5a5248; }
+        
+        .list-group { display: flex; flex-direction: column; gap: 0.8rem; padding-left: 0 !important; }
+        .list-item { font-size: 0.95rem; display: flex; align-items: flex-start; }
+        .year { min-width: 110px; flex-shrink: 0; font-weight: 500; opacity: 0.8; } 
+        .desc { word-break: keep-all; flex: 1; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (max-width: 768px) { 
+            .sidebar { border-right: none; border-bottom: 1px solid #f0f0f0; height: auto !important; position: static !important; } 
+            .content-container { padding: 40px 20px; }
+        }
+    </style>
+
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="sidebar w-full md:w-72 p-10 md:sticky md:top-0 h-screen flex flex-col">
+        <div class="mb-16">
+            <h1 class="text-2xl font-medium tracking-tighter mb-1 text-gray-800">Mikang Lim</h1>
+            <p class="text-[10px] tracking-[0.3em] text-gray-400 uppercase">Ceramic Artist</p>
+        </div>
+        
+		<nav class="flex flex-col space-y-5">
+            <a onclick="showPage('biography')" class="nav-link active">Biography</a>
+            <a onclick="showPage('exhibitions')" class="nav-link">Exhibitions</a>
+            <a onclick="showPage('statement')" class="nav-link">Artist Statement</a>
+            <a onclick="showPage('residence')" class="nav-link">Artist in Residence</a>
+            <a onclick="showPage('workshops')" class="nav-link">Workshops</a>
+            <a onclick="showPage('publications')" class="nav-link">Publications</a>
+            <a onclick="showPage('contact')" class="nav-link">Contact</a>
+		</nav>
+
+		<div class="lang-switch" style="margin-top: 2rem; font-size: 0.75rem; letter-spacing: 0.1em;">
+			<a href="../kor/main.html" class="lang-btn active" style="color: #8c8172; font-weight: bold; text-decoration: none;">한글</a>
+			<span style="color: #eee; margin: 0 10px;">|</span>
+			<a href="main.html" class="lang-btn" style="color: #8c8172; text-decoration: underline;">ENG</a>
+		</div>
+
+        <div class="mt-auto pt-10 text-[10px] text-gray-300 tracking-widest leading-loose">
+            © MIKANG LIM.<br>ALL RIGHTS RESERVED.
+        </div>
+
+	</aside>
+
+    <main class="flex-1 bg-transparent">
+        
+		<section id="biography" class="content-container active">
+			<h2 class="section-title">Biography</h2>
+			
+			<div style="padding-left: 0;">
+				<div class="list-group">
+					<div class="list-item">
+						<span class="year">1979-85 </span>
+						<span class="desc">BFA and MFA Hong-Ik University, Seoul, South Korea (ceramics)</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1985-88 </span>
+						<span class="desc">Studied at Fachhochschule Köln, Meister Schülerin (ceramics and sculpture) Germany</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1987-89 </span>
+						<span class="desc">Studied at Fachhochschule Niederrhein, Diplom Designer (ceramic-design) Germany</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1993 </span>
+						<span class="desc">Resident Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1996~ </span>
+						<span class="desc">Professor at Chungnam National University, Daejeon, Korea</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1997 </span>
+						<span class="desc">Visiting Artist at Kingston University, London, UK</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1999 </span>
+						<span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2000 </span>
+						<span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2001~ </span>
+						<span class="desc">A Member of International Academy of Ceramics (IAC), Geneva, Switzerland</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2003 </span>
+						<span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2005~06 </span>
+						<span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2006 </span>
+						<span class="desc">Resident Artist at Ohio University, Athens, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2009 </span>
+						<span class="desc">Resident Artist at the Jingdezhen Sanbao Ceramic Art Institute, China</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2009 </span>
+						<span class="desc">Resident Artist at the A.I.R Vallauris, France</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2015 </span>
+						<span class="desc">Guest Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+<section id="exhibitions" class="content-container">
+    <h2 class="section-title">Exhibitions & Works</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12" style="padding-left: 0;">
+        
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2023_Gallery_2f_Seoul')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2023_Gallery_2f_Seoul/2023_Gallery_2f_Seoul_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <div><span class="text-[10px] tracking-widest text-gray-400 uppercase">Solo Exhibition</span>
+                <h3 class="text-sm font-bold text-gray-700 mt-1">2023 Gallery 2f, Seoul</h3></div>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2022_The_Shigaraki_Ceramic_Cultural_Park_Japan')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <div><span class="text-[10px] tracking-widest text-gray-400 uppercase">Special Exhibition</span>
+                <h3 class="text-sm font-bold text-gray-700 mt-1">2022 Static x Motion, Japan</h3></div>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2021_Gallery_Onsil_Pyeongtaek')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2021_Gallery_Onsil_Pyeongtaek/2021_Gallery_Onsil_Pyeongtaek_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2021 Gallery Onsil, Pyeongtaek</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2020_House_of_Crafts_Cheongju')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2020_House_of_Crafts_Cheongju/2020_House_of_Crafts_Cheongju_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2020 House of Crafts, Cheongju</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2018_Gallery_Maronie_Kyoto_Japan')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2018_Gallery_Maronie_Kyoto_Japan/2018_Gallery_Maronie_Kyoto_Japan_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2018 Gallery Maronie, Kyoto</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2016_Gallery_Sein_Seoul')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2016_Gallery_Sein_Seoul/2016_Gallery_Sein_Seoul_1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2016 Gallery Sein, Seoul</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2010_Yido_Gallery_Seoul')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2010_Yido_Gallery_Seoul/2010%20Yido-3.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2010 Yido Gallery, Seoul</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2004_Gana_Art_Space_Seoul')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2004_Gana_Art_Space_Seoul/2004%20Gana-1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2004 Gana Art Space, Seoul</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('2000_Gallery_Tokomoma_Geneva_Switzerlan')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/2000_Gallery_Tokomoma_Geneva_Switzerlan/2000%20Ateliers%20Ceramic%20of%20Carouge-1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">2000 Gallery Tokonoma, Geneva</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+        <div class="exhibition-card group cursor-pointer" onclick="openGallery('1993_Gallery_Beni_Kyoto_Japan')">
+            <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-4 shadow-sm">
+                <img src="../work/1993_Gallery_Beni_Kyoto_Japan/1993%20SCCP%20Shigaraki-1.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            </div>
+            <div class="flex justify-between items-start">
+                <h3 class="text-sm font-bold text-gray-700">1993 Gallery Beni, Kyoto</h3>
+                <span class="text-[10px] border-b border-gray-300 text-gray-400 uppercase">View</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="mt-24 pt-10 border-t border-gray-100">
+        <h3 class="text-[10px] tracking-[0.3em] text-gray-400 uppercase mb-10">All Exhibition Archive (Click Year)</h3>
+        <div class="list-group">
+            <div class="list-item" onclick="openGallery('2022_Choi_Gwungsun_Oriental_Medicine')"><span class="year cursor-pointer hover:underline">2022 </span><span class="desc">Choi Gwungsun Oriental Medicine, Daejeon</span></div>
+            <div class="list-item" onclick="openGallery('2022_Daejeon_Museum_of_Arts_Daejeon')"><span class="year cursor-pointer hover:underline">2022 </span><span class="desc">Daejeon Museum of Arts, Daejeon</span></div>
+            <div class="list-item" onclick="openGallery('2019_Cheongju_Craft_Biennale_2019_Cheongju')"><span class="year cursor-pointer hover:underline">2019 </span><span class="desc">Cheongju Craft Biennale 2019</span></div>
+            <div class="list-item" onclick="openGallery('2017_Silver_Shell_Tokyo_Japan')"><span class="year cursor-pointer hover:underline">2017 </span><span class="desc">Silver Shell, Tokyo, Japan</span></div>
+            <div class="list-item" onclick="openGallery('2015_Choi_Gwungsun_Oriental_Medicine_Cl')"><span class="year cursor-pointer hover:underline">2015 </span><span class="desc">Choi Gwungsun Oriental Medicine</span></div>
+            <div class="list-item" onclick="openGallery('2014_Space_Duru_Seoul')"><span class="year cursor-pointer hover:underline">2014 </span><span class="desc">Space Duru, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('2011_Miso_Gallery_Seoul')"><span class="year cursor-pointer hover:underline">2011 </span><span class="desc">Miso Gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('2010_Gallery_Dam_Seoul')"><span class="year cursor-pointer hover:underline">2010 </span><span class="desc">Gallery Dam, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('2010_Gallery_Sangri_Daejon')"><span class="year cursor-pointer hover:underline">2010 </span><span class="desc">Gallery Sangri, Daejeon</span></div>
+            <div class="list-item" onclick="openGallery('2009_AIR_Vallauris_France')"><span class="year cursor-pointer hover:underline">2009 </span><span class="desc">AIR Vallauris, France</span></div>
+            <div class="list-item" onclick="openGallery('2009_Jingdezhen_China')"><span class="year cursor-pointer hover:underline">2009 </span><span class="desc">Jingdezhen, China</span></div>
+            <div class="list-item" onclick="openGallery('2008_Parang_Gallery_Daejon')"><span class="year cursor-pointer hover:underline">2008 </span><span class="desc">Parang Gallery, Daejeon</span></div>
+            <div class="list-item" onclick="openGallery('2006_Tongin_gallery_Seoul')"><span class="year cursor-pointer hover:underline">2006 </span><span class="desc">Tongin gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('2006_The_Ceramic_Sculpture_Gallery_Pill')"><span class="year cursor-pointer hover:underline">2006 </span><span class="desc">UArts, Philadelphia, USA</span></div>
+            <div class="list-item" onclick="openGallery('2005_Tongin_gallery_NY')"><span class="year cursor-pointer hover:underline">2005 </span><span class="desc">Tongin gallery, NY, USA</span></div>
+            <div class="list-item" onclick="openGallery('2003_AIR_Seto_Japan')"><span class="year cursor-pointer hover:underline">2003 </span><span class="desc">AIR Seto, Japan</span></div>
+            <div class="list-item" onclick="openGallery('2002_Yeungeun_Museum_Gwangju')"><span class="year cursor-pointer hover:underline">2002 </span><span class="desc">Yeungeun Museum, Gwangju</span></div>
+            <div class="list-item" onclick="openGallery('2001_314_gallery_LA_USA')"><span class="year cursor-pointer hover:underline">2001 </span><span class="desc">314 gallery, LA, USA</span></div>
+            <div class="list-item" onclick="openGallery('2000_Archie_Bray_Helena_USA')"><span class="year cursor-pointer hover:underline">2000 </span><span class="desc">Archie Bray, Helena, USA</span></div>
+            <div class="list-item" onclick="openGallery('2000_Daejon_Citizen_Hall_Daejon')"><span class="year cursor-pointer hover:underline">2000 </span><span class="desc">Daejeon Citizen Hall</span></div>
+            <div class="list-item" onclick="openGallery('1999_Daejon_Citizen_Hall_Daejon')"><span class="year cursor-pointer hover:underline">1999 </span><span class="desc">Daejeon Citizen Hall</span></div>
+            <div class="list-item" onclick="openGallery('1997_Gallery_2000_Seoul')"><span class="year cursor-pointer hover:underline">1997 </span><span class="desc">Gallery 2000, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1997_Kingston_Univ_UK')"><span class="year cursor-pointer hover:underline">1997 </span><span class="desc">Kingston Univ., UK</span></div>
+            <div class="list-item" onclick="openGallery('1994_Kumho_Gallery_Seoul')"><span class="year cursor-pointer hover:underline">1994 </span><span class="desc">Kumho Gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1993_Midopa_Gallery_Seoul')"><span class="year cursor-pointer hover:underline">1993 </span><span class="desc">Midopa Gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1992_Bing_Gallery_Seoul')"><span class="year cursor-pointer hover:underline">1992 </span><span class="desc">Bing Gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1991_Hangaram_Art_Museum_Seoul')"><span class="year cursor-pointer hover:underline">1991 </span><span class="desc">Hangaram Art Museum, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1990_Moin_Gallery_Seoul')"><span class="year cursor-pointer hover:underline">1990 </span><span class="desc">Moin Gallery, Seoul</span></div>
+            <div class="list-item" onclick="openGallery('1988_Handwerkkammer')"><span class="year cursor-pointer hover:underline">1988 </span><span class="desc">Handwerkskammer, Köln, Germany</span></div>
+        </div>
+    </div>
+</section>
+
+
+		<section id="statement" class="content-container">
+			<h2 class="section-title">Artist Statement</h2>
+			
+			<div style="padding-left: 10px;">
+				<img src="../homeimg/3_2.jpg" alt="Mikang Lim's Work" class="mb-10 max-w-full h-auto rounded-sm border shadow-sm">
+				
+				<span class="font-bold text-lg mb-8 sub-title">Mikang Lim</span>
+				
+				<div class="text-content space-y-6 text-justify">
+					<p>
+						To me it is not much important what I make with clay work. 
+						Whatever it may be, I expect it to be as natural as nature itself. 
+						Whether it is pottery or construction work, I feel the vitality of work 
+						if for a moment I forget myself and indulge myself. 
+					</p>
+					<p>
+						The work patterned into formality is dreadful and tedious. 
+						When I observe certain work, what impresses me is its variety. 
+						The common factors of the work are their naturalness and depth. 
+						Doing a work expressing oneself after deep thought and not bound 
+						in formality but above is what brings vitality. 
+					</p>
+					<p>
+						Much of the work made remains more dead than alive. 
+						To make work alive requires much time. A time where at moment feels 
+						like eternity. 
+					</p>
+					<p>
+						The reason I like ceramic about is the fire. Although sometimes the fire 
+						limits the naturalness of clay, I feel mystified that clay and 
+						fire having went through over hundred and thousands of years of 
+						natural change, that I could express myself through firing. 
+					</p>
+					<p>
+						What I like about clay is that what I express is based on my ability 
+						and the force of nature that which provides the opportunity of 
+						expectation. Sometimes a sigh of admiration 
+						and sometimes a sigh of disappointment results just as in life.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="residence" class="content-container">
+			<h2 class="section-title">Artist in Residence</h2>
+			
+			<div class="list-group">
+				<div class="list-item">
+					<span class="year">2015 </span>
+					<span class="desc">Guest Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2009 </span>
+					<span class="desc">Resident Artist at the Jingdezhen, Sanbao Ceramic Art Institute, China</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2009 </span>
+					<span class="desc">Resident Artist at the A.I.R Vallauris, France</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2006 </span>
+					<span class="desc">Resident Artist at Ohio University, Athens, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2005-06 </span>
+					<span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2003 </span>
+					<span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2000 </span>
+					<span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1999 </span>
+					<span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1997 </span>
+					<span class="desc">Visiting Artist at Kingston University, London, UK</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">Studio Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="workshops" class="content-container">
+			<h2 class="section-title">Workshops</h2>
+			
+			<div class="list-group" style="gap: 1.5rem; padding-left: 0;">
+				
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">“25th Anniversary International Ceramic Art Workshop and Symposium-From the perspective of the Artists in Residence”</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Shigaraki Ceramic Cultural Park, Shigaraki, Japan 2015</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"Open Studio"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- (Artist-in-Residence in Seto)</span>
+						<span>- Seto Ceramic and Glass Art Center, 2003</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"IMWFF 2001" (International Macsabal Wood Fire Festival 2001)</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- SooWon, 2001</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International Ceramic Workshop" (Korean, Japan, China)</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Atelier Ceramic de Carogue, Carogue, Switzerland, 2000</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International pottery Festival"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Aberystuyth Art Centre, Waks. U.K, 1999</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"Clay.Fire International Ceramic Sculpture Workshop"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Iksan, Wonkwang University, 1996</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International Muju Ceramic Workshop"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Mujuresort, 1995</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="publications" class="content-container">
+			<h2 class="section-title">Publications</h2>
+			
+			<div class="list-group" style="gap: 1.5rem; padding-left: 0;">
+				
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">World-Famous Ceramic Artists' Studios, Hebei Fine Arts Publishing House.</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Publisher: Bai Ming 2005, Volume of Asian- Pacific Region (2)</span>
+						<span>- Page: 94-105</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Mikang Lim by Kirk Mangus</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- December 2001 Ceramics Monthly volume 49</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Internal Objects & External Figures by Andrea Polier</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- December 2001 Ceramics Art and Perception Issue 46</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Nouvel objetⅢ</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Copyright: 1997, Designhouse Publications.</span>
+						<span>- Publisher: Young-hye Lee</span>
+						<span>- Page: 114∼117</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Korean Ceramics</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Copyright: 1996 Hongik Univ. Ceramic research institute.</span>
+						<span>- Publisher: Sang-ho Shin</span>
+						<span>- Page: 206, 271</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Profile of Contemporary Art</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- The Ealy '90's in Japan and Korea</span>
+						<span>- Copyright: 1994, International Art Center of Kyoto.</span>
+						<span>- Publisher: Duck-jun Kwak</span>
+						<span>- Page: 475</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="contact" class="content-container">
+			<h2 class="section-title">Contact</h2>
+            <div class="indent-group flex flex-col gap-8">
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Artist</span>
+                    <p class="font-bold text-lg">Mikang Lim</p>
+                    <p>Professor, Dept. of Design & Creative Media, Chungnam National University</p>
+                </div>
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Address</span>
+					<p>
+						Dept. of Design & Creative Media, Chungnam National University,<br>
+						99 Daehak-ro, Yuseong-gu, Daejeon, Korea (34134)
+					</p>
+                </div>
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Email:</span>
+                    <a href="mailto:limmikang@naver.com" class="info-link">limmikang@naver.com</a>
+                </div>
+			</div>
+		</section>
+
+    </main>
+
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.content-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if(event) event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+		function openGallery(folderName) {
+			// 1. 경로 설정 (작가님의 폴더 구조에 맞춤)
+			const url = `../work/${folderName}/${folderName}.html`;
+			
+			// 2. iframe에 주소 넣기
+			const frame = document.getElementById('gallery-frame');
+			frame.src = url;
+			
+			// 3. 레이어 보이기
+			const overlay = document.getElementById('gallery-overlay');
+			overlay.classList.remove('hidden');
+			
+			// 4. 본문 스크롤 방지
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeGallery() {
+			const overlay = document.getElementById('gallery-overlay');
+			overlay.classList.add('hidden');
+			
+			// 내용 초기화 (음악이나 영상이 나올 경우를 대비)
+			document.getElementById('gallery-frame').src = '';
+			
+			// 본문 스크롤 다시 허용
+			document.body.style.overflow = 'auto';
+		}
+    </script>
+
+	<div id="gallery-overlay" class="fixed inset-0 bg-black bg-opacity-70 z-[100] hidden flex items-center justify-center">
+		
+		<button onclick="closeGallery()" class="fixed top-8 right-10 text-white text-4xl font-light hover:rotate-90 transition-transform z-[110]">✕</button>
+		
+		<div class="w-[90%] md:w-[70%] h-[80vh] bg-white rounded-sm shadow-2xl overflow-hidden relative">
+			<div class="w-full h-8 bg-gray-50 border-b flex items-center px-4">
+				<div class="flex gap-1.5">
+					<div class="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
+					<div class="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
+					<div class="w-2.5 h-2.5 rounded-full bg-gray-200"></div>
+				</div>
+			</div>
+			
+			<iframe id="gallery-frame" src="" class="w-full h-[calc(100%-2rem)] border-none"></iframe>
+		</div>
+	</div>
+
+</body>
+</html>

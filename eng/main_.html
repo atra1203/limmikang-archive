@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikang Lim - Ceramic Artist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Serif KR', serif; background-color: #ffffff; color: #AEA391; line-height: 1.8; }
+        .sidebar { border-right: 1px solid #f0f0f0; }
+        .nav-link { font-size: 0.85rem; letter-spacing: 0.15em; transition: all 0.3s; cursor: pointer; text-transform: uppercase; }
+        .nav-link:hover { color: #8c8172; transform: translateX(5px); }
+        .nav-link.active { color: #8c8172; font-weight: 700; }
+        
+        /* 공통 규격: 좌측 여백 24px */
+        .content-container { max-width: 900px; padding: 60px 24px; display: none; }
+        .content-container.active { display: block; animation: fadeIn 0.5s ease-in; }
+        
+        .section-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 2.5rem; letter-spacing: 0.1em; display: block; }
+        .sub-title { font-weight: bold; font-size: 1rem; margin-top: 3.5rem; margin-bottom: 1.2rem; display: block; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        
+        /* 리스트 그룹: 타이틀과 시작 라인 0으로 일치, 불렛 제거 */
+        .list-group { display: flex; flex-direction: column; gap: 0.6rem; padding-left: 0 !important; list-style: none; }
+        .list-item { font-size: 0.95rem; display: flex; align-items: flex-start; padding-left: 0 !important; }
+        .list-item::before { content: none !important; }
+
+        /* 년도 영역 너비 고정 */
+        .year { min-width: 110px; flex-shrink: 0; display: inline-block; } 
+        .desc { word-break: keep-all; flex: 1; }
+
+        /* Workshops & Publications 전용 상세 들여쓰기 및 줄간격 */
+        .detail-box { display: flex; flex-direction: column; padding-left: 10px; gap: 0.5rem; line-height: 1.7; opacity: 0.9; font-size: 0.875rem; margin-top: 4px; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) { 
+            .sidebar { border-right: none; border-bottom: 1px solid #f0f0f0; height: auto !important; } 
+            .content-container { padding-top: 30px; }
+        }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen">
+
+    <aside class="sidebar w-full md:w-72 p-10 md:sticky md:top-0 h-screen flex flex-col">
+        <div class="mb-16">
+            <h1 class="text-2xl font-medium tracking-tighter mb-1 text-gray-800">Mikang Lim</h1>
+            <p class="text-[10px] tracking-[0.3em] text-gray-400 uppercase">Ceramic Artist</p>
+        </div>
+        
+		<nav class="flex flex-col space-y-5">
+            <a onclick="showPage('biography')" class="nav-link active">Biography</a>
+            <a onclick="showPage('exhibitions')" class="nav-link">Exhibitions</a>
+            <a onclick="showPage('statement')" class="nav-link">Artist Statement</a>
+            <a onclick="showPage('residence')" class="nav-link">Artist in Residence</a>
+            <a onclick="showPage('workshops')" class="nav-link">Workshops</a>
+            <a onclick="showPage('publications')" class="nav-link">Publications</a>
+            <a onclick="showPage('contact')" class="nav-link">Contact</a>
+		</nav>
+
+		<div class="lang-switch" style="margin-top: 2rem; font-size: 0.75rem; letter-spacing: 0.1em;">
+			<a href="../kor/main.html" class="lang-btn active" style="color: #8c8172; font-weight: bold; text-decoration: none;">한글</a>
+			<span style="color: #eee; margin: 0 10px;">|</span>
+			<a href="main.html" class="lang-btn" style="color: #8c8172; text-decoration: underline;">ENG</a>
+		</div>
+
+        <div class="mt-auto pt-10 text-[10px] text-gray-300 tracking-widest leading-loose">
+            © MIKANG LIM.<br>ALL RIGHTS RESERVED.
+        </div>
+
+	</aside>
+
+    <main class="flex-1 bg-white">
+        
+		<section id="biography" class="content-container active">
+			<h2 class="section-title">Biography</h2>
+			
+			<div style="padding-left: 0;">
+				<span class="sub-title">Education and Activities</span>
+				<div class="list-group">
+					<div class="list-item">
+						<span class="year">1979-85 </span>
+						<span class="desc">BFA and MFA Hong-Ik University, Seoul, South Korea (ceramics)</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1985-88 </span>
+						<span class="desc">Studied at Fachhochschule Köln, Meister Schülerin (ceramics and sculpture) Germany</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1987-89 </span>
+						<span class="desc">Studied at Fachhochschule Niederrhein, Diplom Designer (ceramic-design) Germany</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1993 </span>
+						<span class="desc">Resident Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1996~ </span>
+						<span class="desc">Professor at Chungnam National University, Daejeon, Korea</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1997 </span>
+						<span class="desc">Visiting Artist at Kingston University, London, UK</span>
+					</div>
+					<div class="list-item">
+						<span class="year">1999 </span>
+						<span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2000 </span>
+						<span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2001~ </span>
+						<span class="desc">A Member of International Academy of Ceramics (IAC), Geneva, Switzerland</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2003 </span>
+						<span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2005~06 </span>
+						<span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2006 </span>
+						<span class="desc">Resident Artist at Ohio University, Athens, USA</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2009 </span>
+						<span class="desc">Resident Artist at the Jingdezhen Sanbao Ceramic Art Institute, China</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2009 </span>
+						<span class="desc">Resident Artist at the A.I.R Vallauris, France</span>
+					</div>
+					<div class="list-item">
+						<span class="year">2015 </span>
+						<span class="desc">Guest Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="exhibitions" class="content-container">
+			<h2 class="section-title">Exhibitions</h2>
+			
+			<span class="sub-title">Solo Exhibitions</span>
+			<div class="list-group">
+				<div class="list-item"><span class="year">2023 </span><span class="desc">Gallery 2f, Seoul</span></div>
+				<div class="list-item"><span class="year">2022 </span><span class="desc">Choi Gwungsun Oriental Medicine Clinic, Daejeon</span></div>
+				<div class="list-item"><span class="year">2021 </span><span class="desc">Gallery Onsil, Pyeongtaek</span></div>
+				<div class="list-item"><span class="year">2020 </span><span class="desc">House of Crafts, Cheongju</span></div>
+				<div class="list-item"><span class="year">2019 </span><span class="desc">Cheongju Craft Biennale 2019, Cheongju</span></div>
+				<div class="list-item"><span class="year">2018 </span><span class="desc">Gallery Maronie, Kyoto, Japan</span></div>
+				<div class="list-item"><span class="year">2017 </span><span class="desc">Silver Shell, Tokyo, Japan</span></div>
+				<div class="list-item"><span class="year">2016 </span><span class="desc">Gallery Sein, Seoul</span></div>
+				<div class="list-item"><span class="year">2015 </span><span class="desc">Choi, Gwangsun Oriental Medicine Clinic, Daejeon</span></div>
+				<div class="list-item"><span class="year">2014 </span><span class="desc">Space Duru, Seoul</span></div>
+				<div class="list-item"><span class="year">2011 </span><span class="desc">Gallery Miso, Seoul</span></div>
+				<div class="list-item"><span class="year">2010 </span><span class="desc">Yido Gallery, Seoul</span></div>
+				<div class="list-item"><span class="year">2010 </span><span class="desc">Sangli Gallery, Daejeon</span></div>
+				<div class="list-item"><span class="year">2010 </span><span class="desc">Gallery Dam, Seoul</span></div>
+				<div class="list-item"><span class="year">2008 </span><span class="desc">Gallery Parang, Daejeon</span></div>
+				<div class="list-item"><span class="year">2006 </span><span class="desc">Tongin Gallery, Seoul</span></div>
+				<div class="list-item"><span class="year">2006 </span><span class="desc">The Ceramic/Sculpture Gallery (The University of the Arts, Philadelphia, USA)</span></div>
+				<div class="list-item"><span class="year">2005 </span><span class="desc">Tong-In Gallery New York, USA</span></div>
+				<div class="list-item"><span class="year">2004 </span><span class="desc">Gana Art Space, Seoul</span></div>
+				<div class="list-item"><span class="year">2001 </span><span class="desc">341 Gallery and Studio, San Pedro, USA</span></div>
+				<div class="list-item"><span class="year">2000 </span><span class="desc">Gallery Tokonoma, Geneva, Switzerland</span></div>
+				<div class="list-item"><span class="year">2000 </span><span class="desc">Citizen Hall, Daejeon</span></div>
+				<div class="list-item"><span class="year">2000 </span><span class="desc">Archie Bray Gazebo, Helena, USA</span></div>
+				<div class="list-item"><span class="year">1999 </span><span class="desc">Citizen Hall, Daejeon</span></div>
+				<div class="list-item"><span class="year">1997 </span><span class="desc">Gallery 2000, Seoul</span></div>
+				<div class="list-item"><span class="year">1994 </span><span class="desc">Keumho Gallery, Seoul</span></div>
+				<div class="list-item"><span class="year">1994 </span><span class="desc">Beni Gallery, Kyoto, Japan</span></div>
+				<div class="list-item"><span class="year">1993 </span><span class="desc">Midopa Gallery, Seoul</span></div>
+				<div class="list-item"><span class="year">1992 </span><span class="desc">Gallery Bing, Seoul</span></div>
+				<div class="list-item"><span class="year">1990 </span><span class="desc">Moin Gallery, Seoul</span></div>
+				<div class="list-item"><span class="year">1988 </span><span class="desc">Handwerkskammer, Köln, Germany</span></div>
+			</div>
+
+			<span class="sub-title">Group Exhibitions</span>
+			<div class="list-group">
+				<div class="list-item">
+					<span class="year">2022 </span>
+					<span class="desc">The Special Exhibition Static x Motion: Tracing the Spirit of Korea (The Shigaraki Ceramic Cultural Park, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2022 </span>
+					<span class="desc">Hotter than Fire Colder than Wind (Daejeon Museum of Arts, Daejeon)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2021 </span>
+					<span class="desc">Korean Society of Ceramic Arts (Dongduk Art Museum, Seoul)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2020 </span>
+					<span class="desc">House of Crafts (Korean Craft Museum, Cheongju)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2019 </span>
+					<span class="desc">Cheongju Craft Biennale 2019 (Culture Factory 3F, Cheongju)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2018 </span>
+					<span class="desc">Craft Trend Fair 2018 (COEX, Seoul)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2017 </span>
+					<span class="desc">Seoul Art Show 2017 (COEX, Seoul)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2016 </span>
+					<span class="desc">Asia Contemporary Ceramic New Generation Exhibition (Taipei Branch, NTCRI, Taiwan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2015 </span>
+					<span class="desc">The 13th Great Oriental Art Exhibition (Burapha University, Thailand)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2014 </span>
+					<span class="desc">Asia Contemporary Ceramic New Generation Exhibition (Gimhae Clayarch Museum, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2013 </span>
+					<span class="desc">Asia Contemporary Ceramic New Generation Exhibition (21st Century Museum of Contemporary Art, Kanazawa, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2012 </span>
+					<span class="desc">Masterpieces of Contemporary Ceramics Selected by KOCEF (Korea Ceramic Foundation, Icheon, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2011 </span>
+					<span class="desc">2011 Contemporary Ceramic Art in Asia (Guangzhou, China)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2010 </span>
+					<span class="desc">Cross-Cultural Visions 1950-2010 (Hangaram Art Museum, Seoul)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2009 </span>
+					<span class="desc">Asia Contemporary Ceramic New Generation Exhibition (Aichi Prefectural Ceramic Museum, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2008 </span>
+					<span class="desc">IAC Members Exhibition (Fuping, China)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2008 </span>
+					<span class="desc">2008 Japan-Korea-China International New Generation Exhibition (Foshan, China)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2007 </span>
+					<span class="desc">Field of Life, The Body in Contemporary Korean Art (California State University, Sacramento, USA)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2007 </span>
+					<span class="desc">International Ceramic Exchange Exhibition (Gongju, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2006 </span>
+					<span class="desc">Human Form in Clay-the Mind’s Eye (Ceramic Cultural Park, Shigaraki, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2005 </span>
+					<span class="desc">International Ceramics & Glass Art Festival in Seto (Seto, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2005 </span>
+					<span class="desc">'Moon-Kyeung-Ji-Kyo' (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2004 </span>
+					<span class="desc">Works from Artist-in-Residence in Seto 2003-2004 (Seto, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2004 </span>
+					<span class="desc">IAC Members Exhibition (Icheon, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2003 </span>
+					<span class="desc">Contemporary Ceramics 'Conceptual Approach' at NCECA (San Diego, USA)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2002 </span>
+					<span class="desc">'Reconsideration of Media' (Icheon, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2002 </span>
+					<span class="desc">IAC Members Exhibition (Athens, Greece)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2002 </span>
+					<span class="desc">2002 Sidney Myer Fund International Ceramic Award (Shepparton, Australia)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">'Treasure Hunting' (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">'The Gift in the Box' (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">'The Contemporary Korean Ceramic Aspect' (Gwangju, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">'A Cross Section of the Contemporary Ceramic' (Gwangju, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">Horizon of Crafts (Cheongju, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2001 </span>
+					<span class="desc">52nd International Competition of Contemporary Art Ceramics (Faenza, Italy)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2000 </span>
+					<span class="desc">'Interspace Between Reality and Space' (Daejeon, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2000 </span>
+					<span class="desc">2000 Annual Resident Artist Exhibition at the Archie Bray Foundation (Helena, USA)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1999 </span>
+					<span class="desc">Special Museum Souvenirs Exhibition of National Museum (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1999 </span>
+					<span class="desc">International Potters Festival (Aberystwyth, UK)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1998 </span>
+					<span class="desc">Daejeon Municipal Museum Opening Exhibition (Daejeon, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1997 </span>
+					<span class="desc">Three Contemporary Artists from Korea (London, UK)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1997 </span>
+					<span class="desc">'Spirit of Clay' (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1995 </span>
+					<span class="desc">'95 Seoul Contemporary Ceramic Biennale (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1994 </span>
+					<span class="desc">Fletcher Challenge Ceramics Award 1994 (Auckland, New Zealand)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1994 </span>
+					<span class="desc">Exhibition of Work Born at the Park 1994 (Shigaraki, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">The Thirty Years Korean Contemporary Ceramic Art (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">Contemporary Korean Ceramics 1993 at NCECA (San Diego, USA)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">Annex Shigaraki '93 (Shigaraki, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">48th International Competition of Contemporary Art Ceramics (Faenza, Italy)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">1993 Korean Contemporary Crafts (Helsinki, Finland)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">'Seoul-Kyoto 6000 Second' (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1992 </span>
+					<span class="desc">'Kyoto-Seoul 6000 Second' (Kyoto, Japan)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1991 </span>
+					<span class="desc">The 1st Jinro Ceramic Art Contest (Seoul, Korea)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1991 </span>
+					<span class="desc">2nd International Biennale of Artists Ceramics of Aveiro (Portugal, Aveiro)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1989 </span>
+					<span class="desc">Westerwaldpreis (Höhr-Grenzhausen, Germany)</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1983 </span>
+					<span class="desc">2nd Grand Art Exhibition of Korea (Seoul, Korea)</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="statement" class="content-container">
+			<h2 class="section-title">Artist Statement</h2>
+			
+			<div style="padding-left: 10px;">
+				<img src="../homeimg/3_2.jpg" alt="Mikang Lim's Work" class="mb-10 max-w-full h-auto rounded-sm border shadow-sm">
+				
+				<span class="font-bold text-lg mb-8 sub-title">Mikang Lim</span>
+				
+				<div class="text-content space-y-6 text-justify">
+					<p>
+						To me it is not much important what I make with clay work. 
+						Whatever it may be, I expect it to be as natural as nature itself. 
+						Whether it is pottery or construction work, I feel the vitality of work 
+						if for a moment I forget myself and indulge myself. 
+					</p>
+					<p>
+						The work patterned into formality is dreadful and tedious. 
+						When I observe certain work, what impresses me is its variety. 
+						The common factors of the work are their naturalness and depth. 
+						Doing a work expressing oneself after deep thought and not bound 
+						in formality but above is what brings vitality. 
+					</p>
+					<p>
+						Much of the work made remains more dead than alive. 
+						To make work alive requires much time. A time where at moment feels 
+						like eternity. 
+					</p>
+					<p>
+						The reason I like ceramic about is the fire. Although sometimes the fire 
+						limits the naturalness of clay, I feel mystified that clay and 
+						fire having went through over hundred and thousands of years of 
+						natural change, that I could express myself through firing. 
+					</p>
+					<p>
+						What I like about clay is that what I express is based on my ability 
+						and the force of nature that which provides the opportunity of 
+						expectation. Sometimes a sigh of admiration 
+						and sometimes a sigh of disappointment results just as in life.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="residence" class="content-container">
+			<h2 class="section-title">Artist in Residence</h2>
+			
+			<div class="list-group">
+				<div class="list-item">
+					<span class="year">2015 </span>
+					<span class="desc">Guest Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2009 </span>
+					<span class="desc">Resident Artist at the Jingdezhen, Sanbao Ceramic Art Institute, China</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2009 </span>
+					<span class="desc">Resident Artist at the A.I.R Vallauris, France</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2006 </span>
+					<span class="desc">Resident Artist at Ohio University, Athens, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2005-06 </span>
+					<span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2003 </span>
+					<span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span>
+				</div>
+				<div class="list-item">
+					<span class="year">2000 </span>
+					<span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1999 </span>
+					<span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1997 </span>
+					<span class="desc">Visiting Artist at Kingston University, London, UK</span>
+				</div>
+				<div class="list-item">
+					<span class="year">1993 </span>
+					<span class="desc">Studio Artist at the Shigaraki Ceramic Cultural Park, Shigaraki, Japan</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="workshops" class="content-container">
+			<h2 class="section-title">Workshops</h2>
+			
+			<div class="list-group" style="gap: 1.5rem; padding-left: 0;">
+				
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">“25th Anniversary International Ceramic Art Workshop and Symposium-From the perspective of the Artists in Residence”</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Shigaraki Ceramic Cultural Park, Shigaraki, Japan 2015</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"Open Studio"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- (Artist-in-Residence in Seto)</span>
+						<span>- Seto Ceramic and Glass Art Center, 2003</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"IMWFF 2001" (International Macsabal Wood Fire Festival 2001)</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- SooWon, 2001</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International Ceramic Workshop" (Korean, Japan, China)</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Atelier Ceramic de Carogue, Carogue, Switzerland, 2000</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International pottery Festival"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Aberystuyth Art Centre, Waks. U.K, 1999</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"Clay.Fire International Ceramic Sculpture Workshop"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Iksan, Wonkwang University, 1996</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">"International Muju Ceramic Workshop"</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Mujuresort, 1995</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="publications" class="content-container">
+			<h2 class="section-title">Publications</h2>
+			
+			<div class="list-group" style="gap: 1.5rem; padding-left: 0;">
+				
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">World-Famous Ceramic Artists' Studios, Hebei Fine Arts Publishing House.</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Publisher: Bai Ming 2005, Volume of Asian- Pacific Region (2)</span>
+						<span>- Page: 94-105</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Mikang Lim by Kirk Mangus</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- December 2001 Ceramics Monthly volume 49</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Internal Objects & External Figures by Andrea Polier</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- December 2001 Ceramics Art and Perception Issue 46</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Nouvel objetⅢ</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Copyright: 1997, Designhouse Publications.</span>
+						<span>- Publisher: Young-hye Lee</span>
+						<span>- Page: 114∼117</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Korean Ceramics</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- Copyright: 1996 Hongik Univ. Ceramic research institute.</span>
+						<span>- Publisher: Sang-ho Shin</span>
+						<span>- Page: 206, 271</span>
+					</div>
+				</div>
+
+				<div class="list-item flex flex-col items-start">
+					<span class="font-bold mb-1">Profile of Contemporary Art</span>
+					<div class="flex flex-col pl-[10px] text-sm opacity-90 gap-y-2 leading-relaxed">
+						<span>- The Ealy '90's in Japan and Korea</span>
+						<span>- Copyright: 1994, International Art Center of Kyoto.</span>
+						<span>- Publisher: Duck-jun Kwak</span>
+						<span>- Page: 475</span>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="contact" class="content-container">
+			<h2 class="section-title">Contact</h2>
+            <div class="indent-group flex flex-col gap-8">
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Artist</span>
+                    <p class="font-bold text-lg">Mikang Lim</p>
+                    <p>Professor, Dept. of Design & Creative Media, Chungnam National University</p>
+                </div>
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Address</span>
+					<p>
+						Dept. of Design & Creative Media, Chungnam National University,<br>
+						99 Daehak-ro, Yuseong-gu, Daejeon, Korea (34134)
+					</p>
+                </div>
+                <div class="contact-item" style="padding-left: 0;">
+                    <span class="label">Email:</span>
+                    <a href="mailto:limmikang@naver.com" class="info-link">limmikang@naver.com</a>
+                </div>
+			</div>
+		</section>
+
+    </main>
+
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.content-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            if(event) event.currentTarget.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
