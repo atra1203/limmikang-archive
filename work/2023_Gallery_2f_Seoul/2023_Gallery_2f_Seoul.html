@@ -1,64 +1,128 @@
-<html>
-
-<!-- Mirrored from www.limmikang.com/work/2023_Gallery_2f_Seoul/2023_Gallery_2f_Seoul.htm by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 06:48:16 GMT -->
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=euc-kr">
-<title>2023 Gallery 2f Seoul</title>
-<!-- jQuery library (served from Google) -->
-<script src="../bxslider/jquery.min.js"></script>
-<!-- bxSlider Javascript file -->
-<script src="../bxslider/jquery.bxslider.min.js"></script>
-<!-- bxSlider CSS file -->
-<link href="../bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2023 Gallery 2f Seoul - Mikang Lim</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* 갤러리 전용 보정 스타일 */
+        body {
+            background-color: #ffffff; /* 작품의 집중도를 위해 배경은 순백색 유지 */
+            font-family: 'Noto Serif KR', serif;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 갤러리 상단 헤더 */
+        .gallery-header {
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .gallery-desc {
+            font-size: 1rem;
+            color: #8c8172; /* 포인트 브라운 컬러 */
+            letter-spacing: 0.05em;
+            margin-bottom: 30px;
+        }
+
+        /* 이미지 컨테이너: 1280px 해상도에서 시원하게 보이도록 폭 조절 */
+        .image-feed {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 40px 150px;
+        }
+
+        .work-frame {
+            margin-bottom: 100px; /* 작품 간 여백을 넓게 주어 호흡 조절 */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .work-frame.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-frame img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04); /* 은은한 그림자 */
+            border: 1px solid #f2f2f2;
+        }
+
+        /* 하단 안내 문구 */
+        .gallery-footer {
+            text-align: center;
+            padding: 100px 0;
+            color: #ccc;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.2em;
+            font-size: 0.75rem;
+        }
+    </style>
 </head>
 <body>
-	<script type="text/javascript">
-	  $(document).ready(function(){    
-		$('.bxslider').bxSlider({
-		  mode: 'fade',
-		  adaptiveHeight: true,
-		  captions: false
-		});
-	  });
-	</script>
-<style>
-    *{
-        margin:0;
-        padding:0;
-    }
-    img{
-        border:none 0;
-        vertical-align:top;
-    }
-    #bannerWrap{
-        position:relative;
-        width:470px;
-        margin:0 auto;
-        padding-left:80px;
-    }
-    
-    #colseBtn{
-        position:absolute;
-        left:0;
-        top:10px;
-</style>
 
-	<ul class="bxslider">
-		<li><img src="2023_Gallery_2f_Seoul_1.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_2.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_3.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_4.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_5.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_6.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_7.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_8.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_9.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_10.jpg"/></li>
-		<li><img src="2023_Gallery_2f_Seoul_11.jpg"/></li>
-	</ul>
+    <header class="gallery-header">
+        <h1 class="gallery-title">2023 Gallery 2f, Seoul</h1>
+        <p class="gallery-desc">개인전 : 갤러리 이층, 서울</p>
+    </header>
 
+    <main class="image-feed">
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_1.jpg" alt="Mikang Lim Work 1"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_2.jpg" alt="Mikang Lim Work 2"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_3.jpg" alt="Mikang Lim Work 3"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_4.jpg" alt="Mikang Lim Work 4"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_5.jpg" alt="Mikang Lim Work 5"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_6.jpg" alt="Mikang Lim Work 6"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_7.jpg" alt="Mikang Lim Work 7"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_8.jpg" alt="Mikang Lim Work 8"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_9.jpg" alt="Mikang Lim Work 9"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_10.jpg" alt="Mikang Lim Work 10"></div>
+        <div class="work-frame"><img src="2023_Gallery_2f_Seoul_11.jpg" alt="Mikang Lim Work 11"></div>
+    </main>
+
+    <footer class="gallery-footer">
+        MIKANG LIM ARCHIVE
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.work-frame').forEach(frame => {
+            observer.observe(frame);
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from www.limmikang.com/work/2023_Gallery_2f_Seoul/2023_Gallery_2f_Seoul.htm by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 06:48:16 GMT -->
 </html>

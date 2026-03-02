@@ -1,34 +1,121 @@
-<html>
-
-<!-- Mirrored from www.limmikang.com/work/1999_Daejon_Citizen_Hall_Daejon/1999_Daejon_Citizen_Hall_Daejon.htm by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 07:27:38 GMT -->
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=euc-kr">
-<title>1999 Daejon Citizen Hall Daejon</title>
-<!-- jQuery library (served from Google) -->
-<script src="../bxslider/jquery.min.js"></script>
-<!-- bxSlider Javascript file -->
-<script src="../bxslider/jquery.bxslider.min.js"></script>
-<!-- bxSlider CSS file -->
-<link href="../bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1999 Daejeon Citizen Hall - Mikang Lim</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* 갤러리 전용 최적화 스타일 */
+        body {
+            background-color: #ffffff;
+            font-family: 'Noto Serif KR', serif;
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 상단 헤더: 해상도에 따른 여백 최적화 */
+        .gallery-header {
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .gallery-desc {
+            font-size: 1rem;
+            color: #8c8172;
+            letter-spacing: 0.05em;
+        }
+
+        /* 이미지 피드: 1280px 해상도에서 안정적인 1050px 폭 설정 */
+        .image-feed {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 40px 150px;
+        }
+
+        /* 작품 프레임 및 등장 애니메이션 */
+        .work-frame {
+            margin-bottom: 120px; /* 작품 사이의 넉넉한 여백 */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .work-frame.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-frame img {
+            width: 100%;
+            height: auto;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid #f8f8f8;
+        }
+
+        /* 하단 푸터 */
+        .gallery-footer {
+            text-align: center;
+            padding: 100px 0;
+            color: #dddddd;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.3em;
+            font-size: 0.7rem;
+        }
+    </style>
 </head>
 <body>
-	<script type="text/javascript">
-	  $(document).ready(function(){    
-		$('.bxslider').bxSlider({
-		  mode: 'fade',
-		  captions: false,
-		  adaptiveHeight: true
-		});
-	  });
-	</script>
-	<ul class="bxslider">
-<li><img src="1999%20C-1.jpg" /></li>
-<li><img src="1999%20C-2.jpg" /></li>
-<li><img src="1999%20C-3.jpg" /></li>
 
-	</ul>
+    <header class="gallery-header">
+        <h1 class="gallery-title">Daejeon Citizen Hall</h1>
+        <p class="gallery-desc">개인전 : 대전 시민회관, 대전 (1999)</p>
+    </header>
+
+    <main class="image-feed">
+        <div class="work-frame"><img src="1999 C-1.jpg" alt="1999 Exhibition Work 1"></div>
+        <div class="work-frame"><img src="1999 C-2.jpg" alt="1999 Exhibition Work 2"></div>
+        <div class="work-frame"><img src="1999 C-3.jpg" alt="1999 Exhibition Work 3"></div>
+    </main>
+
+    <footer class="gallery-footer">
+        © MIKANG LIM ARCHIVE
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.work-frame').forEach(frame => {
+            observer.observe(frame);
+        });
+    </script>
 </body>
-
-
-<!-- Mirrored from www.limmikang.com/work/1999_Daejon_Citizen_Hall_Daejon/1999_Daejon_Citizen_Hall_Daejon.htm by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Mar 2026 07:27:59 GMT -->
 </html>

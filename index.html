@@ -1,46 +1,131 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikang Lim</title>
+    <title>Mikang Lim - Ceramic Artist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
-        body { 
-            background-color: #262626; 
-            font-family: 'Noto Sans KR', sans-serif;
-            color: #d1d1d1;
+        /* 인트로 페이지 전용 보정 스타일 */
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #000 !important; /* 배경을 확실한 블랙으로 */
+            overflow: hidden;
         }
+
+        .full-wrapper {
+            display: flex; align-items: center; justify-content: center;
+            width: 100%; height: 100vh; position: relative; z-index: 10;
+        }
+
+        .bg-gradient {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            z-index: -1;
+        }
+
+        /* [핵심 수정] 작가 이름 디자인 및 가시성 확보 */
         .artist-name {
-            font-family: 'Playfair Display', serif;
-            color: #c5a47e; /* 이미지 속 금색 톤 추출 */
+            font-family: 'Cinzel', serif !important;
+            color: #b39a7d !important; /* 메인 골드 컬러 강제 적용 */
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em !important;
+            line-height: 1.2;
+            display: block;
         }
-        .fade-in { animation: fadeIn 2s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* 애니메이션 보정: 확실히 올라오도록 설정 */
+        .reveal-text { 
+            overflow: hidden; 
+            display: block; 
+            margin-bottom: 0.5rem; 
+        }
+        .reveal-text span {
+            display: block; 
+            transform: translateY(110%); /* 시작할 때 숨김 */
+            animation: revealEffect 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        @keyframes revealEffect {
+            0% { transform: translateY(110%); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .nav-links {
+            opacity: 0;
+            animation: fadeInLinks 1s ease forwards;
+            animation-delay: 1.8s; /* 이름이 다 올라온 후 등장 */
+            margin-top: 3rem;
+        }
+
+        @keyframes fadeInLinks { from { opacity: 0; } to { opacity: 1; } }
+
+        .lang-link {
+            color: #888 !important;
+            text-decoration: none;
+            transition: all 0.5s;
+            letter-spacing: 0.1em;
+            font-size: 1.1rem;
+        }
+        .lang-link:hover { color: #ffffff !important; letter-spacing: 0.15em; }
+        .divider { color: #444; margin: 0 20px; }
+
+        .page-transition {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 1000; pointer-events: none;
+            opacity: 0; transition: opacity 0.8s;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen m-0">
+<body class="intro-body">
 
-    <div class="text-center fade-in px-4">
-        <p class="text-sm md:text-base tracking-[0.3em] mb-2 opacity-80 uppercase">
-            Ceramic Artist
-        </p>
-        
-        <h1 class="artist-name text-4xl md:text-6xl mb-12 tracking-wide font-medium">
-            Mikang Lim
-        </h1>
+    <div class="bg-gradient"></div>
+    <div id="transition-layer" class="page-transition"></div>
 
-        <nav class="flex items-center justify-center space-x-4 text-sm md:text-base tracking-widest">
-            <a href="kor/main.html" class="hover:text-white transition-colors duration-300">
-                한 글
-            </a>
-            <span class="text-gray-600">|</span>
-            <a href="eng/main.html" class="hover:text-white transition-colors duration-300">
-                ENGLISH
-            </a>
-        </nav>
+    <div class="full-wrapper">
+        <div class="container text-center">
+            <span class="reveal-text">
+                <p class="text-[10px] md:text-xs tracking-[0.5em] mb-4 opacity-50 uppercase font-light text-gray-400">
+                    <span>Ceramic Artist</span>
+                </p>
+            </span>
+            
+            <span class="reveal-text">
+                <h1 class="artist-name" id="tilt-name">
+                    <span>Mikang Lim</span>
+                </h1>
+            </span>
+
+            <nav class="nav-links flex items-center justify-center">
+                <a href="kor/main.html" class="lang-link" onclick="transitionPage(event, this.href)">한 글</a>
+                <span class="divider">|</span>
+                <a href="eng/main.html" class="lang-link" onclick="transitionPage(event, this.href)">ENGLISH</a>
+            </nav>
+        </div>
     </div>
 
+    <script>
+        const nameTag = document.getElementById('tilt-name');
+        // 마우스 이동에 따른 미세한 틸트 효과
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.pageX) / 80;
+                const y = (window.innerHeight / 2 - e.pageY) / 80;
+                nameTag.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y * -1}deg)`;
+            });
+        }
+
+        // 페이지 전환 효과
+        function transitionPage(e, href) {
+            e.preventDefault();
+            document.getElementById('transition-layer').style.opacity = '1';
+            setTimeout(() => { window.location.href = href; }, 800);
+        }
+    </script>
 </body>
 </html>

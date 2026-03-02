@@ -1,0 +1,115 @@
+/* 구글 프리미엄 폰트 로드 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&display=swap');
+
+:root {
+    --point-gold: #b39a7d;
+    --text-dark: #111111;
+    --sidebar-width: 300px; /* 1280px 화면 최적화 너비 */
+    --font-kor: 'Noto Serif KR', serif;
+    --font-eng-title: 'Cinzel', serif;
+    --font-eng-body: 'Cormorant Gramond', serif;
+}
+
+/* --- 전역 가독성 설정 --- */
+body { 
+    font-family: var(--font-kor); 
+    color: var(--text-dark); 
+    line-height: 1.8; 
+    margin: 0;
+    word-break: keep-all; 
+    font-size: 18px; 
+    background-color: transparent;
+    letter-spacing: -0.01em;
+}
+
+body.main-page {
+    /* [주의] CSS 파일이 assets/css 안에 있다면 상위로 두 번 올라가야 homeimg 폴더를 찾습니다. */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.92)), 
+                      url('../../homeimg/background_texture.jpg'); 
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 중요: main 태그 배경색을 제거해야 body의 배경 질감이 비칩니다. */
+main {
+    background-color: transparent !important;
+}
+
+/* --- [1280px 최적화] 사이드바 레이아웃 --- */
+@media (min-width: 1024px) {
+    .sidebar-fixed {
+        position: fixed !important;
+        top: 0; left: 0; bottom: 0;
+        width: var(--sidebar-width) !important;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.5) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-right: 1px solid rgba(0,0,0,0.05);
+        overflow-y: auto;
+        padding: 60px 40px;
+    }
+    main {
+        margin-left: var(--sidebar-width) !important;
+        width: calc(100% - var(--sidebar-width)) !important;
+        padding-left: 40px;
+        display: flex;
+        justify-content: flex-start;
+    }
+}
+
+/* --- 타이틀 및 네비게이션 --- */
+.eng-title { font-family: var(--font-eng-title); letter-spacing: 0.01em; font-weight: 600; }
+.kor-title { font-family: var(--font-eng-title); letter-spacing: 0.1em; font-weight: 600; }
+
+.nav-link { 
+    font-family: var(--font-eng-body); 
+    font-size: 1.2rem;
+    color: #8c8172;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    font-style: italic;
+}
+.nav-link.active { 
+    color: #000; font-style: normal; font-weight: 700; 
+    border-left: 4px solid var(--point-gold);
+    padding-left: 20px; margin-left: -20px;
+}
+
+.section-title { 
+    font-family: var(--font-eng-title); 
+    letter-spacing: 0.12em;
+    border-left: 5px solid var(--point-gold);
+    padding-left: 20px;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+/* --- 컨텐츠 레이아웃 및 가독성 --- */
+.content-container { display: none; width: 100%; max-width: 860px; padding: 100px 0; }
+.content-container.active { display: block; animation: fadeIn 0.8s ease-out; }
+
+.text-content p {
+    margin-bottom: 2.2rem;
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 2.0;
+    font-weight: 400;
+}
+
+.list-item { font-size: 1.05rem; margin-bottom: 1.2rem; display: flex; align-items: flex-start; }
+.year { min-width: 110px; color: var(--point-gold); font-family: var(--font-eng-body); font-weight: 600; font-size: 1.3rem; }
+.desc { flex: 1; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 모바일/태블릿 대응 */
+@media (max-width: 1023px) {
+    .sidebar-fixed { width: 100%; position: relative !important; padding: 40px; }
+    main { margin-left: 0 !important; width: 100% !important; padding-left: 0; }
+    .content-container { padding: 60px 25px; }
+}
