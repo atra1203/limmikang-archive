@@ -7,7 +7,7 @@
     --sidebar-width: 300px; /* 1280px 화면 최적화 너비 */
     --font-kor: 'Noto Serif KR', serif;
     --font-eng-title: 'Cinzel', serif;
-    --font-eng-body: 'Cormorant Gramond', serif;
+    --font-eng-body: 'Cormorant Garamond', serif;
 }
 
 /* --- 전역 가독성 설정 --- */
@@ -23,7 +23,6 @@ body {
 }
 
 body.main-page {
-    /* [주의] CSS 파일이 assets/css 안에 있다면 상위로 두 번 올라가야 homeimg 폴더를 찾습니다. */
     background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.92)), 
                       url('../../homeimg/background_texture.jpg'); 
     background-attachment: fixed;
@@ -32,7 +31,6 @@ body.main-page {
     background-repeat: no-repeat;
 }
 
-/* 중요: main 태그 배경색을 제거해야 body의 배경 질감이 비칩니다. */
 main {
     background-color: transparent !important;
 }
@@ -60,9 +58,25 @@ main {
     }
 }
 
-/* --- 타이틀 및 네비게이션 --- */
+/* --- 성함 및 직함 배치 보정 --- */
+.kor-title { 
+    font-family: var(--font-kor); 
+    font-weight: 700; 
+    font-size: 2.2rem; 
+    letter-spacing: -0.02em; 
+}
+
+/* 성함 옆 '도예가' 작은 글씨 스타일 */
+.job-title {
+    font-size: 14px;
+    color: #999;
+    letter-spacing: 0.2em;
+    margin-left: 12px;
+    font-weight: 400;
+}
+
+/* --- 네비게이션 및 섹션 타이틀 --- */
 .eng-title { font-family: var(--font-eng-title); letter-spacing: 0.01em; font-weight: 600; }
-.kor-title { font-family: var(--font-eng-title); letter-spacing: 0.1em; font-weight: 600; }
 
 .nav-link { 
     font-family: var(--font-eng-body); 
@@ -89,7 +103,39 @@ main {
     font-size: 1.6rem;
 }
 
-/* --- 컨텐츠 레이아웃 및 가독성 --- */
+/* --- 하단 '임미강 아카이브' 가독성 극대화 설정 --- */
+.archive-footer {
+    margin-top: auto;
+    padding-top: 50px;       /* 위 여백을 넓혀 독립된 영역임을 강조 */
+    padding-bottom: 30px;
+    opacity: 1 !important;   /* 반투명 효과를 완전히 제거하여 선명도 확보 */
+}
+
+.archive-text {
+    font-family: var(--font-kor);
+    font-size: 15px;          /* 13px에서 15px로 키워 가독성 확보 */
+    color: #b39a7d;           /* 짙은 차콜 블랙으로 변경 (명도 대비 최대화) */
+    letter-spacing: 0.35em;   /* 자간을 미세하게 좁혀 가독성 집중 */
+    font-weight: 700;         /* 굵기를 Bold(700)로 상향하여 뼈대를 튼튼하게 함 */
+    line-height: 1.5;
+}
+
+.copyright-text {
+    font-family: var(--font-eng-title);
+    font-size: 11px;          /* 영문 저작권 문구도 시인성 상향 */
+    color: #b39a7d;           /* 회색조를 진하게 조정 */
+    letter-spacing: 0.12em;
+    margin-top: 12px;
+    font-weight: 500;         /* 폰트 두께 보강 */
+}
+
+/* 마우스를 올렸을 때 강조 효과 (선택 사항) */
+.archive-footer:hover .archive-text {
+    color: var(--point-gold); /* 작가님의 포인트 컬러인 골드로 변화 */
+    transition: color 0.4s ease;
+}
+
+/* --- 컨텐츠 레이아웃 애니메이션 --- */
 .content-container { display: none; width: 100%; max-width: 860px; padding: 100px 0; }
 .content-container.active { display: block; animation: fadeIn 0.8s ease-out; }
 
@@ -107,7 +153,6 @@ main {
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-/* 모바일/태블릿 대응 */
 @media (max-width: 1023px) {
     .sidebar-fixed { width: 100%; position: relative !important; padding: 40px; }
     main { margin-left: 0 !important; width: 100% !important; padding-left: 0; }
