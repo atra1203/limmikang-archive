@@ -90,6 +90,7 @@ main {
     color: #000; font-style: normal; font-weight: 700; 
     border-left: 4px solid var(--point-gold);
     padding-left: 20px; margin-left: -20px;
+    background-color: rgba(179, 154, 125, 0.05); /* 은은한 배경색 추가 */
 }
 
 .section-title { 

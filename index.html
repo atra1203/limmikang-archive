@@ -1,105 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikang Lim - Ceramic Artist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
     
     <style>
-        /* 인트로 페이지 전용 보정 스타일 */
         body, html {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #000 !important; /* 배경을 확실한 블랙으로 */
+            background-color: #000 !important;
             overflow: hidden;
+            font-family: 'Cinzel', serif;
         }
+
+        /* 배경 이미지 레이어 */
+		.bg-image-layer {
+			position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+			
+			/* 그라데이션을 더 어둡게 설정하여 이미지를 누릅니다 */
+			background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
+						url('homeimg/intro_representative.jpg'); 
+			background-size: cover;
+			background-position: center;
+			background-color: #000;
+			z-index: 1;
+			
+			filter: grayscale(100%) opacity(90%); 
+		}
 
         .full-wrapper {
             display: flex; align-items: center; justify-content: center;
-            width: 100%; height: 100vh; position: relative; z-index: 10;
+            width: 100%; height: 100vh; position: relative; z-index: 100; /* 메뉴보다 뒤에 있지만 충분히 높게 */
         }
 
-        .bg-gradient {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            z-index: -1;
-        }
-
-        /* [핵심 수정] 작가 이름 디자인 및 가시성 확보 */
         .artist-name {
             font-family: 'Cinzel', serif !important;
-            color: #b39a7d !important; /* 메인 골드 컬러 강제 적용 */
-            font-size: clamp(3rem, 10vw, 5.5rem);
+            color: #b39a7d !important;
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.05em !important;
+            letter-spacing: 0.1em;
             line-height: 1.2;
-            display: block;
+            text-shadow: 0 0 20px rgba(179, 154, 125, 0.4);
         }
 
-        /* 애니메이션 보정: 확실히 올라오도록 설정 */
-        .reveal-text { 
-            overflow: hidden; 
-            display: block; 
-            margin-bottom: 0.5rem; 
-        }
+        /* 텍스트 등장 애니메이션 (성함 부분) */
+        .reveal-text { display: block; overflow: hidden; }
         .reveal-text span {
             display: block; 
-            transform: translateY(110%); /* 시작할 때 숨김 */
-            animation: revealEffect 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            transform: translateY(110%);
+            animation: revealEffect 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         @keyframes revealEffect {
             0% { transform: translateY(110%); opacity: 0; }
-            20% { opacity: 1; }
             100% { transform: translateY(0); opacity: 1; }
         }
 
+        /* [핵심 보정] 하단 링크: 애니메이션 제거 및 즉시 노출 */
         .nav-links {
-            opacity: 0;
-            animation: fadeInLinks 1s ease forwards;
-            animation-delay: 1.8s; /* 이름이 다 올라온 후 등장 */
-            margin-top: 3rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 999 !important; /* 최상위 레이어로 강제 고정 */
+            opacity: 1 !important; /* 대기 없이 즉시 노출 */
+            display: flex !important;
         }
-
-        @keyframes fadeInLinks { from { opacity: 0; } to { opacity: 1; } }
 
         .lang-link {
-            color: #888 !important;
+            color: #ffffff !important; 
+            font-family: 'Noto Serif KR', serif;
             text-decoration: none;
-            transition: all 0.5s;
-            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            letter-spacing: 0.2em;
             font-size: 1.1rem;
+            opacity: 0.9 !important; /* 선명하게 */
+            padding: 5px 10px;
         }
-        .lang-link:hover { color: #ffffff !important; letter-spacing: 0.15em; }
-        .divider { color: #444; margin: 0 20px; }
+        
+        .lang-link:hover { 
+            opacity: 1 !important; 
+            color: #b39a7d !important; 
+            transform: translateY(-2px);
+        }
 
-        .page-transition {
+        .divider { color: rgba(255,255,255,0.3); margin: 0 15px; font-weight: 300; }
+
+        #transition-layer {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: 1000; pointer-events: none;
-            opacity: 0; transition: opacity 0.8s;
+            background: #000; z-index: 2000; pointer-events: none;
+            opacity: 0; 
         }
     </style>
 </head>
-<body class="intro-body">
+<body>
 
-    <div class="bg-gradient"></div>
-    <div id="transition-layer" class="page-transition"></div>
+    <div class="bg-image-layer"></div>
+    <div id="transition-layer"></div>
 
     <div class="full-wrapper">
-        <div class="container text-center">
-            <span class="reveal-text">
-                <p class="text-[10px] md:text-xs tracking-[0.5em] mb-4 opacity-50 uppercase font-light text-gray-400">
+        <div class="container text-center px-4">
+            <div class="reveal-text">
+                <p class="text-[20px] tracking-[0.5em] mb-4 opacity-90 uppercase text-gray-400">
                     <span>Ceramic Artist</span>
                 </p>
-            </span>
+            </div>
             
-            <span class="reveal-text">
+            <div class="reveal-text">
                 <h1 class="artist-name" id="tilt-name">
                     <span>Mikang Lim</span>
                 </h1>
-            </span>
+            </div>
 
             <nav class="nav-links flex items-center justify-center">
                 <a href="kor/main.html" class="lang-link" onclick="transitionPage(event, this.href)">한 글</a>
@@ -111,20 +123,24 @@
 
     <script>
         const nameTag = document.getElementById('tilt-name');
-        // 마우스 이동에 따른 미세한 틸트 효과
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 768 && nameTag) {
             document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth / 2 - e.pageX) / 80;
-                const y = (window.innerHeight / 2 - e.pageY) / 80;
+                const x = (window.innerWidth / 2 - e.pageX) / 60;
+                const y = (window.innerHeight / 2 - e.pageY) / 60;
                 nameTag.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y * -1}deg)`;
             });
         }
 
-        // 페이지 전환 효과
         function transitionPage(e, href) {
             e.preventDefault();
-            document.getElementById('transition-layer').style.opacity = '1';
-            setTimeout(() => { window.location.href = href; }, 800);
+            const layer = document.getElementById('transition-layer');
+            if(layer) {
+                layer.style.transition = 'opacity 0.6s';
+                layer.style.opacity = '1';
+                setTimeout(() => { window.location.href = href; }, 600);
+            } else {
+                window.location.href = href;
+            }
         }
     </script>
 </body>
