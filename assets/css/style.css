@@ -486,3 +486,13 @@ main {
         top: calc(var(--header-height) + 8px);
 	}
 }
+
+/* ============================
+   스크롤 잠금 처리 (안정 버전)
+   ============================ */
+
+body.no-scroll {
+    overflow: hidden;
+    height: 100dvh;
+    touch-action: none;
+}
