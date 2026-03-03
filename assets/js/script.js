@@ -20,6 +20,17 @@ function showPage(id) {
 
     // 4. 페이지 상단으로 부드럽게 이동
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // 🔥 모바일 메뉴 열려있으면 자동 닫기
+    const hamburger = document.querySelector('.hamburger-btn');
+    const overlay = document.querySelector('.mobile-nav-overlay');
+    const header = document.querySelector('.mobile-header');
+
+    if (hamburger && overlay && header) {
+        hamburger.classList.remove('open');
+        overlay.classList.remove('open');
+        header.classList.remove('menu-open');
+    }
 }
 
 /**
@@ -31,10 +42,9 @@ function openGallery(folderName) {
     const overlay = document.getElementById('gallery-overlay');
     
     if (frame && overlay) {
-        // 기존 구조에 맞춰 ../work/ 경로 참조
         frame.src = `../work/${folderName}/${folderName}.html`;
         overlay.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // 본문 스크롤 방지
+        document.body.style.overflow = 'hidden';
     }
 }
 
@@ -47,12 +57,47 @@ function closeGallery() {
     
     if (overlay) {
         overlay.classList.add('hidden');
-        if (frame) frame.src = ''; // 리소스 해제
-        document.body.style.overflow = 'auto'; // 스크롤 복구
+        if (frame) frame.src = '';
+        document.body.style.overflow = 'auto';
     }
 }
 
-// 이스케이프 키(Esc)로 갤러리 닫기 지원
+// ESC 키로 갤러리 닫기
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeGallery();
+});
+
+
+// ========================================
+// 🔥 모바일 햄버거 메뉴 제어 (추가된 부분)
+// ========================================
+document.addEventListener('DOMContentLoaded', function () {
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    function openMobileNav() {
+        hamburgerBtn.classList.add('open');
+        mobileNav.classList.add('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        mobileNav.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+        hamburgerBtn.classList.remove('open');
+        mobileNav.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', () => {
+        if (mobileNav.classList.contains('open')) {
+            closeMobileNav();
+        } else {
+            openMobileNav();
+        }
+    });
+
 });

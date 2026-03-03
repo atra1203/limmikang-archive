@@ -472,4 +472,17 @@ main {
         padding: 50px 20px 60px;
     }
 
+    .mobile-header {
+        align-items: center;
+        transition: align-items 0.3s ease;
+    }
+
+    .mobile-header.menu-open {
+        align-items: flex-start;
+        padding-top: 6px;
+    }
+
+    #gallery-overlay > button {
+        top: calc(var(--header-height) + 8px);
+	}
 }
