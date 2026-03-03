@@ -4,7 +4,7 @@
 :root {
     --point-gold: #b39a7d;
     --text-dark: #111111;
-    --sidebar-width: 300px; /* 1280px 화면 최적화 너비 */
+    --sidebar-width: 300px;
     --font-kor: 'Noto Serif KR', serif;
     --font-eng-title: 'Cinzel', serif;
     --font-eng-body: 'Cormorant Garamond', serif;
@@ -22,6 +22,7 @@ body {
     letter-spacing: -0.01em;
 }
 
+/* --- Subtle Background Depth --- */
 body.main-page {
     background-image: linear-gradient(rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.92)), 
                       url('../../homeimg/background_texture.jpg'); 
@@ -29,6 +30,12 @@ body.main-page {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    animation: subtleZoom 40s ease-in-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+    from { background-size: 100%; }
+    to { background-size: 108%; }
 }
 
 main {
@@ -66,7 +73,6 @@ main {
     letter-spacing: -0.02em; 
 }
 
-/* 성함 옆 '도예가' 작은 글씨 스타일 */
 .job-title {
     font-size: 14px;
     color: #999;
@@ -76,7 +82,11 @@ main {
 }
 
 /* --- 네비게이션 및 섹션 타이틀 --- */
-.eng-title { font-family: var(--font-eng-title); letter-spacing: 0.01em; font-weight: 600; }
+.eng-title { 
+    font-family: var(--font-eng-title); 
+    letter-spacing: 0.01em; 
+    font-weight: 600; 
+}
 
 .nav-link { 
     font-family: var(--font-eng-body); 
@@ -85,12 +95,37 @@ main {
     transition: all 0.4s ease;
     cursor: pointer;
     font-style: italic;
+    position: relative;
 }
+
+/* Premium Nav Interaction */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background: var(--point-gold);
+    transition: width 0.4s ease;
+}
+
+.nav-link:hover {
+    transform: translateX(4px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
 .nav-link.active { 
-    color: #000; font-style: normal; font-weight: 700; 
+    color: #000; 
+    font-style: normal; 
+    font-weight: 700; 
     border-left: 4px solid var(--point-gold);
-    padding-left: 20px; margin-left: -20px;
-    background-color: rgba(179, 154, 125, 0.05); /* 은은한 배경색 추가 */
+    padding-left: 20px; 
+    margin-left: -20px;
+    background-color: rgba(179, 154, 125, 0.05);
 }
 
 .section-title { 
@@ -104,41 +139,65 @@ main {
     font-size: 1.6rem;
 }
 
-/* --- 하단 '임미강 아카이브' 가독성 극대화 설정 --- */
+/* --- Footer --- */
 .archive-footer {
     margin-top: auto;
-    padding-top: 50px;       /* 위 여백을 넓혀 독립된 영역임을 강조 */
+    padding-top: 50px;
     padding-bottom: 30px;
-    opacity: 1 !important;   /* 반투명 효과를 완전히 제거하여 선명도 확보 */
+    opacity: 1 !important;
 }
 
 .archive-text {
     font-family: var(--font-kor);
-    font-size: 15px;          /* 13px에서 15px로 키워 가독성 확보 */
-    color: #b39a7d;           /* 짙은 차콜 블랙으로 변경 (명도 대비 최대화) */
-    letter-spacing: 0.35em;   /* 자간을 미세하게 좁혀 가독성 집중 */
-    font-weight: 700;         /* 굵기를 Bold(700)로 상향하여 뼈대를 튼튼하게 함 */
+    font-size: 15px;
+    color: #b39a7d;
+    letter-spacing: 0.35em;
+    font-weight: 700;
     line-height: 1.5;
 }
 
 .copyright-text {
     font-family: var(--font-eng-title);
-    font-size: 11px;          /* 영문 저작권 문구도 시인성 상향 */
-    color: #b39a7d;           /* 회색조를 진하게 조정 */
+    font-size: 11px;
+    color: #b39a7d;
     letter-spacing: 0.12em;
     margin-top: 12px;
-    font-weight: 500;         /* 폰트 두께 보강 */
+    font-weight: 500;
 }
 
-/* 마우스를 올렸을 때 강조 효과 (선택 사항) */
 .archive-footer:hover .archive-text {
-    color: var(--point-gold); /* 작가님의 포인트 컬러인 골드로 변화 */
+    color: var(--point-gold);
     transition: color 0.4s ease;
 }
 
 /* --- 컨텐츠 레이아웃 애니메이션 --- */
-.content-container { display: none; width: 100%; max-width: 860px; padding: 100px 0; }
-.content-container.active { display: block; animation: fadeIn 0.8s ease-out; }
+.content-container { 
+    display: none; 
+    width: 100%; 
+    max-width: 860px; 
+    padding: 100px 0; 
+}
+
+.content-container.active { 
+    display: block; 
+    animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Premium Fade */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(25px) scale(0.98);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1.01);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
 .text-content p {
     margin-bottom: 2.2rem;
@@ -148,14 +207,37 @@ main {
     font-weight: 400;
 }
 
-.list-item { font-size: 1.05rem; margin-bottom: 1.2rem; display: flex; align-items: flex-start; }
-.year { min-width: 110px; color: var(--point-gold); font-family: var(--font-eng-body); font-weight: 600; font-size: 1.3rem; }
-.desc { flex: 1; }
+.list-item { 
+    font-size: 1.05rem; 
+    margin-bottom: 1.2rem; 
+    display: flex; 
+    align-items: flex-start; 
+}
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.year { 
+    min-width: 110px; 
+    color: var(--point-gold); 
+    font-family: var(--font-eng-body); 
+    font-weight: 600; 
+    font-size: 1.3rem; 
+}
+
+.desc { 
+    flex: 1; 
+}
 
 @media (max-width: 1023px) {
-    .sidebar-fixed { width: 100%; position: relative !important; padding: 40px; }
-    main { margin-left: 0 !important; width: 100% !important; padding-left: 0; }
-    .content-container { padding: 60px 25px; }
+    .sidebar-fixed { 
+        width: 100%; 
+        position: relative !important; 
+        padding: 40px; 
+    }
+    main { 
+        margin-left: 0 !important; 
+        width: 100% !important; 
+        padding-left: 0; 
+    }
+    .content-container { 
+        padding: 60px 25px; 
+    }
 }

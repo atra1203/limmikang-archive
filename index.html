@@ -1,147 +1,82 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikang Lim - Ceramic Artist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #000 !important;
-            overflow: hidden;
-            font-family: 'Cinzel', serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikang Lim | Ceramic Artist</title>
 
-        /* 배경 이미지 레이어 */
-		.bg-image-layer {
-			position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-			
-			/* 그라데이션을 더 어둡게 설정하여 이미지를 누릅니다 */
-			background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), 
-						url('homeimg/intro_representative.jpg'); 
-			background-size: cover;
-			background-position: center;
-			background-color: #000;
-			z-index: 1;
-			
-			filter: grayscale(100%) opacity(90%); 
-		}
+<meta name="description" content="Ceramic Artist Mikang Lim Official Website">
+<meta property="og:title" content="Mikang Lim - Ceramic Artist">
+<meta property="og:description" content="Official Portfolio Website">
+<meta property="og:type" content="website">
 
-        .full-wrapper {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; height: 100vh; position: relative; z-index: 100; /* 메뉴보다 뒤에 있지만 충분히 높게 */
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
 
-        .artist-name {
-            font-family: 'Cinzel', serif !important;
-            color: #b39a7d !important;
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            line-height: 1.2;
-            text-shadow: 0 0 20px rgba(179, 154, 125, 0.4);
-        }
+<script src="https://cdn.tailwindcss.com"></script>
 
-        /* 텍스트 등장 애니메이션 (성함 부분) */
-        .reveal-text { display: block; overflow: hidden; }
-        .reveal-text span {
-            display: block; 
-            transform: translateY(110%);
-            animation: revealEffect 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Cinzel', serif;
+    color: #fff;
+}
 
-        @keyframes revealEffect {
-            0% { transform: translateY(110%); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
+.hero-bg {
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+        url('homeimg/intro_representative.jpg') center/cover no-repeat;
+    filter: grayscale(100%) brightness(70%);
+    z-index: -1;
+}
 
-        /* [핵심 보정] 하단 링크: 애니메이션 제거 및 즉시 노출 */
-        .nav-links {
-            margin-top: 4rem;
-            position: relative;
-            z-index: 999 !important; /* 최상위 레이어로 강제 고정 */
-            opacity: 1 !important; /* 대기 없이 즉시 노출 */
-            display: flex !important;
-        }
+.artist-name {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    letter-spacing: 0.1em;
+    color: #c8a97e;
+}
 
-        .lang-link {
-            color: #ffffff !important; 
-            font-family: 'Noto Serif KR', serif;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            letter-spacing: 0.2em;
-            font-size: 1.1rem;
-            opacity: 0.9 !important; /* 선명하게 */
-            padding: 5px 10px;
-        }
-        
-        .lang-link:hover { 
-            opacity: 1 !important; 
-            color: #b39a7d !important; 
-            transform: translateY(-2px);
-        }
+.fade-in {
+    animation: fadeUp 1.4s ease forwards;
+    opacity: 0;
+}
 
-        .divider { color: rgba(255,255,255,0.3); margin: 0 15px; font-weight: 300; }
-
-        #transition-layer {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: 2000; pointer-events: none;
-            opacity: 0; 
-        }
-    </style>
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="bg-image-layer"></div>
-    <div id="transition-layer"></div>
+<div class="hero-bg"></div>
 
-    <div class="full-wrapper">
-        <div class="container text-center px-4">
-            <div class="reveal-text">
-                <p class="text-[20px] tracking-[0.5em] mb-4 opacity-90 uppercase text-gray-400">
-                    <span>Ceramic Artist</span>
-                </p>
-            </div>
-            
-            <div class="reveal-text">
-                <h1 class="artist-name" id="tilt-name">
-                    <span>Mikang Lim</span>
-                </h1>
-            </div>
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
 
-            <nav class="nav-links flex items-center justify-center">
-                <a href="kor/main.html" class="lang-link" onclick="transitionPage(event, this.href)">한 글</a>
-                <span class="divider">|</span>
-                <a href="eng/main.html" class="lang-link" onclick="transitionPage(event, this.href)">ENGLISH</a>
-            </nav>
-        </div>
-    </div>
+    <p class="tracking-[0.4em] text-gray-400 uppercase fade-in" style="animation-delay:0.2s">
+        Ceramic Artist
+    </p>
 
-    <script>
-        const nameTag = document.getElementById('tilt-name');
-        if (window.innerWidth > 768 && nameTag) {
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth / 2 - e.pageX) / 60;
-                const y = (window.innerHeight / 2 - e.pageY) / 60;
-                nameTag.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y * -1}deg)`;
-            });
-        }
+    <h1 class="artist-name mt-6 fade-in" style="animation-delay:0.5s">
+        Mikang Lim
+    </h1>
 
-        function transitionPage(e, href) {
-            e.preventDefault();
-            const layer = document.getElementById('transition-layer');
-            if(layer) {
-                layer.style.transition = 'opacity 0.6s';
-                layer.style.opacity = '1';
-                setTimeout(() => { window.location.href = href; }, 600);
-            } else {
-                window.location.href = href;
-            }
-        }
-    </script>
+    <nav class="mt-16 flex items-center gap-6 fade-in" style="animation-delay:0.8s" aria-label="Language selection">
+        <a href="kor/main.html" class="hover:text-[#c8a97e] transition">한국어</a>
+        <span class="opacity-40">|</span>
+        <a href="eng/main.html" class="hover:text-[#c8a97e] transition">ENGLISH</a>
+    </nav>
+
+</section>
+
 </body>
 </html>
