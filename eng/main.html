@@ -3,21 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>임미강 | MIKANG LIM - 도예가 Ceramic Artist</title>
-	<meta name="description" content="도예가 임미강(Mikang Lim)의 공식 아카이브. 1983년부터 이어온 흙과 불의 예술, 주요 전시 및 작품 세계를 소개합니다.">    
+    <title>임미강 | MIKANG LIM - Ceramic Artist</title>
+    <meta name="description" content="Official archive of ceramic artist Mikang Lim. Exploring the art of clay and fire since 1983.">
     <meta name="keywords" content="임미강, 도예가 임미강, Mikang Lim, Ceramic Artist, 한국 도예, 현대도자, 이도갤러리 전시, 시가라키 레지던시">
-	<meta property="og:type" content="website">
-    <meta property="og:title" content="임미강 | MIKANG LIM - 도예가 Archive">
-    <meta property="og:description" content="흙과 불이 빚어낸 생명력, 도예가 임미강의 작품 세계를 만나보세요.">
-    <!--<meta property="og:image" content="https://www.limmikang.com/assets/img/representative_work.jpg"> <meta property="og:url" content="https://www.limmikang.com">-->
-	<meta property="og:image" content="https://atra1203.github.io/limmikang-archive/homeimg/background_texture.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="임미강 | MIKANG LIM - Ceramic Artist Archive">
+    <meta property="og:description" content="The world of ceramic artist Mikang Lim — vitality born from clay and fire.">
+    <meta property="og:image" content="https://atra1203.github.io/limmikang-archive/homeimg/background_texture.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="../assets/js/script.js" defer></script>
 </head>
-<body class="main-page flex flex-col lg:flex-row min-h-screen" lang="en">
+<body class="main-page" lang="en">
 
+    <!-- ===== 모바일 전용 상단 헤더 ===== -->
+    <header class="mobile-header">
+        <div class="mobile-header-title">
+            <span class="name-kor" style="font-family: var(--font-eng-title); font-size: 1rem; letter-spacing: 0.1em;">MIKANG LIM</span>
+            <span class="name-eng">CERAMIC ARTIST</span>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- ===== 모바일 전용 네비게이션 오버레이 ===== -->
+    <div class="mobile-nav-overlay" id="mobileNav" aria-hidden="true">
+        <nav>
+            <a onclick="showPage('biography', this); closeMobileNav()" class="nav-link active">Biography</a>
+            <a onclick="showPage('exhibitions', this); closeMobileNav()" class="nav-link">Exhibitions</a>
+            <a onclick="showPage('statement', this); closeMobileNav()" class="nav-link">Artist Statement</a>
+            <a onclick="showPage('residence', this); closeMobileNav()" class="nav-link">Artist in Residence</a>
+            <a onclick="showPage('workshops', this); closeMobileNav()" class="nav-link">Workshops</a>
+            <a onclick="showPage('publications', this); closeMobileNav()" class="nav-link">Publications</a>
+            <a onclick="showPage('contact', this); closeMobileNav()" class="nav-link">Contact</a>
+        </nav>
+        <div class="lang-switch text-[12px] tracking-widest font-bold">
+            <a href="../kor/main.html" class="text-gray-400 hover:text-gray-600 transition-colors">KOR</a>
+            <span class="text-gray-300 mx-3">|</span>
+            <a href="main.html" class="text-gray-900 underline underline-offset-4">ENG</a>
+        </div>
+        <div class="archive-footer">
+            <div class="archive-text">MIKANG LIM ARCHIVE</div>
+            <div class="copyright-text">© 2026 MIKANG LIM</div>
+        </div>
+    </div>
+
+    <!-- ===== 데스크톱 사이드바 ===== -->
     <aside class="sidebar-fixed flex flex-col">
         <div class="mb-20">
             <p class="text-[14px] tracking-[0.1em] text-gray-500 font-serif">Ceramic Artist</p>
@@ -40,17 +75,13 @@
             <a href="main.html" class="text-gray-900 underline underline-offset-4">ENG</a>
         </div>
 
-		<div class="archive-footer border-t border-stone-50">
-			<div class="archive-text">
-				MIKANG LIM ARCHIVE
-			</div>
-			
-			<div class="copyright-text">
-				© 2026 MIKANG LIM
-			</div>
-		</div>
+        <div class="archive-footer border-t border-stone-50">
+            <div class="archive-text">MIKANG LIM ARCHIVE</div>
+            <div class="copyright-text">© 2026 MIKANG LIM</div>
+        </div>
     </aside>
 
+    <!-- ===== 메인 콘텐츠 ===== -->
     <main class="flex-1">
         
         <section id="biography" class="content-container active">
@@ -65,7 +96,7 @@
                 <div class="list-item"><span class="year">1999 </span><span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span></div>
                 <div class="list-item"><span class="year">2000 </span><span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span></div>
                 <div class="list-item"><span class="year">2001~ </span><span class="desc">A Member of International Academy of Ceramics (IAC), Geneva, Switzerland</span></div>
-                <div class="list-item"><span class="year">2003 </span><span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span></div>
+                <div class="list-item"><span class="year">2003 </span><span class="desc">Resident Artist at ECICGAEP, Seto, Japan</span></div>
                 <div class="list-item"><span class="year">2005~06 </span><span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span></div>
                 <div class="list-item"><span class="year">2006 </span><span class="desc">Resident Artist at Ohio University, Athens, USA</span></div>
                 <div class="list-item"><span class="year">2009 </span><span class="desc">Resident Artist at the Jingdezhen Sanbao Ceramic Art Institute, China</span></div>
@@ -128,7 +159,6 @@
                     <div class="list-item" onclick="openGallery('2017_Silver_Shell_Tokyo_Japan')"><span class="year cursor-pointer">2017 </span><span class="desc">Silver Shell, Tokyo, Japan</span></div>
                     <div class="list-item" onclick="openGallery('2015_Choi_Gwungsun_Oriental_Medicine_Cl')"><span class="year cursor-pointer">2015 </span><span class="desc">Choi Gwungsun Oriental Medicine</span></div>
                     <div class="list-item" onclick="openGallery('2014_Space_Duru_Seoul')"><span class="year cursor-pointer">2014 </span><span class="desc">Space Duru, Seoul</span></div>
-                    <!--<div class="list-item" onclick="openGallery('2011_Miso_Gallery_Seoul')"><span class="year cursor-pointer">2011 </span><span class="desc">Miso Gallery, Seoul</span></div>-->
                     <div class="list-item" onclick="openGallery('2010_Gallery_Dam_Seoul')"><span class="year cursor-pointer">2010 </span><span class="desc">Gallery Dam, Seoul</span></div>
                     <div class="list-item" onclick="openGallery('2010_Gallery_Sangri_Daejon')"><span class="year cursor-pointer">2010 </span><span class="desc">Gallery Sangri, Daejeon</span></div>
                     <div class="list-item" onclick="openGallery('2009_AIR_Vallauris_France')"><span class="year cursor-pointer">2009 </span><span class="desc">AIR Vallauris, France</span></div>
@@ -175,7 +205,7 @@
                 <div class="list-item"><span class="year">2009 </span><span class="desc">Resident Artist at the Jingdezhen, Sanbao Ceramic Art Institute, China / A.I.R Vallauris, France</span></div>
                 <div class="list-item"><span class="year">2006 </span><span class="desc">Resident Artist at Ohio University, Athens, USA</span></div>
                 <div class="list-item"><span class="year">2005-06 </span><span class="desc">Resident Artist at the University of the Arts as a Fulbright scholar, Philadelphia, USA</span></div>
-                <div class="list-item"><span class="year">2003 </span><span class="desc">Resident Artist at ECICGAEP, Seto , Japan</span></div>
+                <div class="list-item"><span class="year">2003 </span><span class="desc">Resident Artist at ECICGAEP, Seto, Japan</span></div>
                 <div class="list-item"><span class="year">2000 </span><span class="desc">Resident Artist at the Archie Bray Foundation for the Ceramic Arts, Helena, USA</span></div>
                 <div class="list-item"><span class="year">1999 </span><span class="desc">Resident Artist at Ateliers Ceramic of Carouge, Carouge, Switzerland</span></div>
                 <div class="list-item"><span class="year">1997 </span><span class="desc">Visiting Artist at Kingston University, London, UK</span></div>
@@ -186,11 +216,11 @@
         <section id="workshops" class="content-container">
             <h2 class="section-title">Workshops</h2>
             <div class="list-group">
-                <div class="list-item flex flex-col"><span class="font-bold text-lg">“25th Anniversary International Ceramic Art Workshop and Symposium”</span><span class="desc text-gray-500 mt-2"> - Shigaraki Ceramic Cultural Park, Shigaraki, Japan 2015</span></div>
+                <div class="list-item flex flex-col"><span class="font-bold text-lg">"25th Anniversary International Ceramic Art Workshop and Symposium"</span><span class="desc text-gray-500 mt-2"> - Shigaraki Ceramic Cultural Park, Shigaraki, Japan 2015</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">"Open Studio"</span><span class="desc text-gray-500 mt-2"> - Seto Ceramic and Glass Art Center, 2003</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">"IMWFF 2001" (International Macsabal Wood Fire Festival 2001)</span><span class="desc text-gray-500 mt-2"> - SooWon, 2001</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">"International Ceramic Workshop" (Korean, Japan, China)</span><span class="desc text-gray-500 mt-2"> - Atelier Ceramic de Carogue, Switzerland, 2000</span></div>
-                <div class="list-item flex flex-col"><span class="font-bold text-lg">"International pottery Festival"</span><span class="desc text-gray-500 mt-2"> - Aberystuyth Art Centre, Waks. U.K, 1999</span></div>
+                <div class="list-item flex flex-col"><span class="font-bold text-lg">"International pottery Festival"</span><span class="desc text-gray-500 mt-2"> - Aberystuyth Art Centre, Wales, U.K, 1999</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">"Clay.Fire International Ceramic Sculpture Workshop"</span><span class="desc text-gray-500 mt-2"> - Iksan, Wonkwang University, 1996</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">"International Muju Ceramic Workshop"</span><span class="desc text-gray-500 mt-2"> - Mujuresort, 1995</span></div>
             </div>
@@ -219,32 +249,63 @@
                     <span class="block text-[22px] text-gray-800 uppercase mb-4 font-bold tracking-widest">Address</span>
                     <p class="text-xl opacity-90">99 Daehak-ro, Yuseong-gu, Daejeon, Korea (34134)</p>
                 </div>
-				<div class="pt-6 border-t border-gray-100">
-					<span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">Email</span>
-					<a href="mailto:limmikang@naver.com" 
-					   class="inline-block text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">
-					   limmikang@naver.com
-					</a>
-				</div>
-				<div class="pt-6 border-t border-gray-100">
-					<span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">Instagram</span>					
-					<a href="https://www.instagram.com/mikanglim/" 
-					   target="_blank" 
-					   rel="noopener noreferrer" 
-					   class="text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">
-					   @mikanglim
-					</a>
-				</div>
-			</div>
+                <div class="pt-6 border-t border-gray-100">
+                    <span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">Email</span>
+                    <a href="mailto:limmikang@naver.com" class="inline-block text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">limmikang@naver.com</a>
+                </div>
+                <div class="pt-6 border-t border-gray-100">
+                    <span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">Instagram</span>
+                    <a href="https://www.instagram.com/mikanglim/" target="_blank" rel="noopener noreferrer" class="text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">@mikanglim</a>
+                </div>
+            </div>
         </section>
 
     </main>
 
+    <!-- 갤러리 오버레이 -->
     <div id="gallery-overlay" class="fixed inset-0 bg-black/85 z-[200] hidden flex items-center justify-center p-4">
         <button onclick="closeGallery()" class="absolute top-8 right-10 text-white text-4xl hover:rotate-90 transition-transform">✕</button>
         <div class="w-full max-w-7xl h-[90vh] bg-white rounded-sm shadow-2xl overflow-hidden">
             <iframe id="gallery-frame" src="" class="w-full h-full border-none"></iframe>
         </div>
     </div>
+
+    <!-- 햄버거 메뉴 스크립트 -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function openMobileNav() {
+            hamburgerBtn.classList.add('open');
+            mobileNav.classList.add('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'true');
+            mobileNav.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            hamburgerBtn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
+            mobileNav.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            if (mobileNav.classList.contains('open')) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
+        });
+
+        mobileNav.addEventListener('click', (e) => {
+            if (e.target === mobileNav) closeMobileNav();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMobileNav();
+        });
+    </script>
 </body>
 </html>
