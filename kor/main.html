@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>임미강 | MIKANG LIM - 도예가 Ceramic Artist</title>
     <meta name="description" content="도예가 임미강(Mikang Lim)의 공식 아카이브. 1983년부터 이어온 흙과 불의 예술, 주요 전시 및 작품 세계를 소개합니다.">    
-    <meta name="keywords" content="임미강, 도예가 임미강, Mikang Lim, Ceramic Artist, 한국 도예, 현대도자, 이도갤러리 전시, 시가라키 레지던시">
+    <meta name="keywords" content="임미강, 도예가 임미강, Mikang Lim, Ceramic Artist, 한국 도예, 현대도자, 이도갤러리 전시, 시가라키 레지던시, 花月皿">
     <meta property="og:type" content="website">
     <meta property="og:title" content="임미강 | MIKANG LIM - 도예가 Archive">
     <meta property="og:description" content="흙과 불이 빚어낸 생명력, 도예가 임미강의 작품 세계를 만나보세요.">
-    <meta property="og:image" content="https://atra1203.github.io/limmikang-archive/homeimg/background_texture.jpg">
+    <meta property="og:image" content="http://www.limmikang.com/homeimg/background_texture.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -20,7 +20,7 @@
     <!-- ===== 모바일 전용 상단 헤더 ===== -->
     <header class="mobile-header">
         <div class="mobile-header-title">
-            <span class="name-kor">임미강</span>
+            <span class="name-kor" style="font-family:var(--font-kor); font-size:1.1rem; letter-spacing:-0.01em;">임미강</span>
             <span class="name-eng">도예가</span>
         </div>
         <button class="hamburger-btn" id="hamburgerBtn" aria-label="메뉴 열기" aria-expanded="false">
@@ -38,13 +38,13 @@
             <a onclick="showPage('statement', this); closeMobileNav()" class="nav-link">작가 명제</a>
             <a onclick="showPage('residence', this); closeMobileNav()" class="nav-link">레지던시 및 초대작가</a>
             <a onclick="showPage('workshops', this); closeMobileNav()" class="nav-link">워크숍</a>
-            <a onclick="showPage('publications', this); closeMobileNav()" class="nav-link">주요 저술 및 출판</a>
+            <a onclick="showPage('publications', this); closeMobileNav()" class="nav-link">비평 및 출판</a>
             <a onclick="showPage('contact', this); closeMobileNav()" class="nav-link">연락처</a>
         </nav>
-        <div class="lang-switch text-[12px] tracking-widest font-bold">
-            <a href="main.html" class="text-gray-900 underline underline-offset-4">KOR</a>
-            <span class="text-gray-300 mx-3">|</span>
-            <a href="../eng/main.html" class="text-gray-400">ENG</a>
+        <div class="lang-switch" style="text-align:center; margin-top:2rem;">
+            <a href="main.html" style="color:#0d0c0b; border-bottom:1px solid rgba(168,137,92,0.4); padding-bottom:1px;">KOR</a>
+            <span style="color:#d4ccc0; margin:0 10px;">·</span>
+            <a href="../eng/main.html" style="color:#b0a090;">ENG</a>
         </div>
         <div class="archive-footer">
             <div class="archive-text">임미강 아카이브</div>
@@ -54,30 +54,28 @@
 
     <!-- ===== 데스크톱 사이드바 ===== -->
     <aside class="sidebar-fixed flex flex-col">
-        <div class="mb-20">
-            <div class="flex items-baseline gap-3 border-b border-gray-100 pb-2">
-                <p class="text-[14px] tracking-[0.2em] text-gray-400 font-medium">도예가</p>
-                <h1 class="kor-title text-4xl mb-0">임미강</h1>        
-            </div>
+        <div class="mb-16">
+            <p class="job-title mb-3" style="font-size:9.5px; letter-spacing:0.32em; text-transform:uppercase; font-family:var(--font-display);">도예가</p>
+            <h1 class="kor-title" style="font-size:1.9rem; line-height:1.15; letter-spacing:-0.02em;">임미강</h1>        
         </div>
         
-        <nav class="flex flex-col space-y-8">
+        <nav class="flex flex-col" style="gap:1.8rem;">
             <a onclick="showPage('biography', this)" class="nav-link active">작가 이력</a>
             <a onclick="showPage('exhibitions', this)" class="nav-link">전시 및 작품</a>
             <a onclick="showPage('statement', this)" class="nav-link">작가 명제</a>
-            <a onclick="showPage('residence', this)" class="nav-link">레지던시 및 초대작가</a>
+            <a onclick="showPage('residence', this)" class="nav-link">레지던시</a>
             <a onclick="showPage('workshops', this)" class="nav-link">워크숍</a>
-            <a onclick="showPage('publications', this)" class="nav-link">주요 저술 및 출판</a>
+            <a onclick="showPage('publications', this)" class="nav-link">비평 및 출판</a>
             <a onclick="showPage('contact', this)" class="nav-link">연락처</a>
         </nav>
 
-        <div class="lang-switch mt-16 text-[12px] tracking-widest font-bold">
-            <a href="main.html" class="text-gray-900 underline underline-offset-4">KOR</a>
-            <span class="text-gray-300 mx-3">|</span>
-            <a href="../eng/main.html" class="text-gray-400">ENG</a>
+        <div class="lang-switch" style="margin-top:3.5rem;">
+            <a href="main.html" style="color:#0d0c0b; border-bottom:1px solid rgba(168,137,92,0.4); padding-bottom:1px;">KOR</a>
+            <span style="color:#d4ccc0; margin:0 10px; font-weight:200;">·</span>
+            <a href="../eng/main.html" style="color:#b0a090;">ENG</a>
         </div>
 
-        <div class="archive-footer border-t border-stone-50">
+        <div class="archive-footer" style="border-top:1px solid rgba(168,137,92,0.1);">
             <div class="archive-text">임미강 아카이브</div>
             <div class="copyright-text">© 2026 MIKANG LIM</div>
         </div>
@@ -112,51 +110,51 @@
 
         <section id="exhibitions" class="content-container">
             <h2 class="section-title">전시 및 작품</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2023_Gallery_2f_Seoul')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2023_Gallery_2f_Seoul/2023_Gallery_2f_Seoul_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2023 갤러리 이층, 서울</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2023_Gallery_2f_Seoul/2023_Gallery_2f_Seoul_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2023 갤러리 이층, 서울</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2022_The_Shigaraki_Ceramic_Cultural_Park_Japan')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2022 정중동(靜中動), 시가라키, 일본</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan/2022_The_Shigaraki_Ceramic_Cultural_Park_Japan_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2022 정중동(靜中動), 시가라키, 일본</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2021_Gallery_Onsil_Pyeongtaek')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2021_Gallery_Onsil_Pyeongtaek/2021_Gallery_Onsil_Pyeongtaek_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2021 갤러리 온실 블루온블루, 평택</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2021_Gallery_Onsil_Pyeongtaek/2021_Gallery_Onsil_Pyeongtaek_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2021 갤러리 온실, 평택</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2020_House_of_Crafts_Cheongju')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2020_House_of_Crafts_Cheongju/2020_House_of_Crafts_Cheongju_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2020 집들이 공예전, 한국공예관, 청주</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2020_House_of_Crafts_Cheongju/2020_House_of_Crafts_Cheongju_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2020 집들이 공예전, 청주</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2018_Gallery_Maronie_Kyoto_Japan')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2018_Gallery_Maronie_Kyoto_Japan/2018_Gallery_Maronie_Kyoto_Japan_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2018 갤러리 마로니에, 교토, 일본</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2018_Gallery_Maronie_Kyoto_Japan/2018_Gallery_Maronie_Kyoto_Japan_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2018 갤러리 마로니에, 교토, 일본</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2016_Gallery_Sein_Seoul')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2016_Gallery_Sein_Seoul/2016_Gallery_Sein_Seoul_1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2016 갤러리 세인, 서울</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2016_Gallery_Sein_Seoul/2016_Gallery_Sein_Seoul_1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2016 갤러리 세인, 서울</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2010_Yido_Gallery_Seoul')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2010_Yido_Gallery_Seoul/2010%20Yido-3.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2010 이도갤러리, 서울</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2010_Yido_Gallery_Seoul/2010%20Yido-3.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2010 이도갤러리, 서울</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2004_Gana_Art_Space_Seoul')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2004_Gana_Art_Space_Seoul/2004%20Gana-1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2004 가나아트스페이스, 서울</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2004_Gana_Art_Space_Seoul/2004%20Gana-1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2004 가나아트스페이스, 서울</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('2000_Gallery_Tokomoma_Geneva_Switzerlan')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/2000_Gallery_Tokomoma_Geneva_Switzerlan/2000%20Ateliers%20Ceramic%20of%20Carouge-1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">2000 갤러리 도코노마, 제네바, 스위스</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/2000_Gallery_Tokomoma_Geneva_Switzerlan/2000%20Ateliers%20Ceramic%20of%20Carouge-1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>2000 갤러리 도코노마, 제네바, 스위스</h3>
                 </div>
                 <div class="exhibition-card group cursor-pointer" onclick="openGallery('1993_Gallery_Beni_Kyoto_Japan')">
-                    <div class="aspect-[4/3] overflow-hidden bg-white/50 border rounded-sm mb-6 shadow-sm"><img src="../work/1993_Gallery_Beni_Kyoto_Japan/1993%20SCCP%20Shigaraki-1.jpg" class="w-full h-full object-cover group-hover:scale-110 duration-1000"></div>
-                    <h3 class="text-base font-bold">1993 갤러리 베니, 교토, 일본</h3>
+                    <div class="card-img-wrap aspect-[4/3]"><img src="../work/1993_Gallery_Beni_Kyoto_Japan/1993%20SCCP%20Shigaraki-1.jpg" class="w-full h-full object-cover"></div>
+                    <h3>1993 갤러리 베니, 교토, 일본</h3>
                 </div>
             </div>
 
-            <div class="mt-32 pt-12 border-t">
-                <h3 class="font-bold text-xl mb-10 pb-4 border-b w-fit">전시 아카이브 (연도를 클릭하시면 해당 전시의 이미지를 감상하실 수 있습니다)</h3>
+            <div style="margin-top:0;">
+                <h3 class="archive-section-header" style="margin-top:3rem; padding-top:3.5rem; border-top:1px solid rgba(168,137,92,0.12);">전시 아카이브 — 연도를 클릭하시면 이미지를 감상하실 수 있습니다</h3>
                 <div class="list-group">
                     <div class="list-item" onclick="openGallery('2022_Choi_Gwungsun_Oriental_Medicine')"><span class="year cursor-pointer">2022 </span><span class="desc">최광순 한의원, 대전</span></div>
                     <div class="list-item" onclick="openGallery('2022_Daejeon_Museum_of_Arts_Daejeon')"><span class="year cursor-pointer">2022 </span><span class="desc">대전시립미술관 '불보다 뜨겁게 바람보다 서늘하게', 대전</span></div>
@@ -193,7 +191,7 @@
         <section id="statement" class="content-container">
             <h2 class="section-title">작가 명제</h2>
             <img src="../homeimg/3_2.jpg" alt="Work" class="mb-16 max-w-full border shadow-sm">
-            <h3 class="font-bold text-xl mb-10 pb-4 border-b w-fit">임미강</h3>
+            <h3 style="font-family:var(--font-display); font-size:0.75rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:2.5rem; padding-bottom:16px; border-bottom:1px solid rgba(168,137,92,0.12);">임미강</h3>
             <div class="text-content">
                 <p>나에게 있어 흙 작업은 '무엇을 만드느냐'가 중요하지 않다. 그 무엇이 되었든지 자연을 볼 때처럼 그렇게 자연스럽기를 기대한다. 그릇이든 조형 작업이든 만드는 순간 나를 잊어버리고 몰입할 수 있었던 시간이 있었다면, 그 작업에선 생명력을 느낄 수 있다. 하나로 정형화되는 것은 두렵고 지겨운 일이다.</p>
                 <p>나 자신이 어떤 작품을 감상할 때에도 다양한 장르에서 감동을 느낄 수 있다. 그것의 공통점은 자연스러움과 자유스러움, 그리고 깊이감이다. 자신이 표현하는 장르에서 그 틀에 얽매이지 않고 틀을 넘나들며 제작할 때 보는 이 또한 생명력을 느낄 수 있을 것이다.</p>
@@ -231,7 +229,7 @@
         </section>
 
         <section id="publications" class="content-container">
-            <h2 class="section-title">주요 저술 및 출판</h2>
+            <h2 class="section-title">비평 및 출판</h2>
             <div class="list-group">
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">World-Famous Ceramic Artists' Studios, Asian-Pacific (2)</span><span class="desc text-gray-500 mt-2"> - Hebei Fine Arts Publishing House 2005, 편집자: Bai Ming</span></div>
                 <div class="list-item flex flex-col"><span class="font-bold text-lg">임미강</span><span class="desc text-gray-500 mt-2"> - 월간지: 'Ceramic Monthy' 2001 12월호, 글쓴이: Kirk Mangus</span></div>
@@ -244,34 +242,39 @@
 
         <section id="contact" class="content-container">
             <h2 class="section-title">연락처</h2>
-            <div class="flex flex-col gap-4">
-                <div>
-                    <span class="block text-[24px] text-gray-600 uppercase mb-4 font-bold tracking-widest">임미강</span>
-                    <p class="text-xl mt-3 opacity-90">충남대학교 예술대학 디자인창의학과 교수</p>
+            <div style="display:flex; flex-direction:column;">
+                <div class="contact-row">
+                    <span class="contact-label">작가</span>
+                    <span class="contact-value" style="font-family:var(--font-kor); font-size:1.4rem; font-weight:500; letter-spacing:-0.01em;">임미강</span>
+                    <p class="contact-value" style="margin-top:8px; font-size:1.0rem; opacity:0.75; font-family:var(--font-kor);">충남대학교 예술대학 디자인창의학과 교수</p>
                 </div>
-                <div class="pt-6 border-t border-gray-100">
-                    <span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">주소</span>
-                    <p class="text-xl opacity-90">(34134) 대전광역시 유성구 대학로 99 충남대학교 예술대학</p>
+                <div class="contact-row">
+                    <span class="contact-label">주소</span>
+                    <p class="contact-value" style="font-family:var(--font-kor);">(34134) 대전광역시 유성구 대학로 99<br>충남대학교 예술대학</p>
                 </div>
-                <div class="pt-6 border-t border-gray-100">
-                    <span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">인스타그램</span>
-                    <a href="https://www.instagram.com/mikanglim/" target="_blank" rel="noopener noreferrer" class="text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">@mikanglim</a>
+                <div class="contact-row">
+                    <span class="contact-label">인스타그램</span>
+                    <a href="https://www.instagram.com/mikanglim/" target="_blank" rel="noopener noreferrer" class="contact-link">@mikanglim</a>
                 </div>
-				<div class="pt-6 border-t border-gray-100">
-                    <span class="block text-[20px] text-gray-600 uppercase mb-4 font-bold tracking-widest">이메일</span>
-                    <a href="mailto:limmikang@naver.com" class="inline-block text-xl text-stone-500 hover:text-black hover:border-b hover:border-black transition-all pb-1 italic font-serif">limmikang@naver.com</a>
+                <div class="contact-row">
+                    <span class="contact-label">이메일</span>
+                    <a href="mailto:limmikang@naver.com" class="contact-link"><span class="__cf_email__" data-cfemail="91fdf8fcfcf8faf0fff6d1fff0e7f4e3bff2fefc">limmikang@naver.com</span></a>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- 갤러리 오버레이 -->
+	<!-- 갤러리 오버레이 -->
 	<div id="gallery-overlay" class="fixed inset-0 bg-black/85 z-[500] hidden flex items-center justify-center p-4">
-		<button onclick="closeGallery()" class="absolute top-8 right-10 text-gray-300 hover:text-white text-4xl transition-all duration-300 hover:rotate-90 hover:scale-110">✕</button>
-        <div class="w-full max-w-7xl h-[90vh] bg-white rounded-sm shadow-2xl overflow-hidden">
-            <iframe id="gallery-frame" src="" class="w-full h-full border-none"></iframe>
-        </div>
-    </div>
+		<div style="position:relative; width:100%; max-width:1280px; height:90vh; display:flex; flex-direction:column;">
+			<div style="text-align:right; padding-bottom:10px;">
+				<button onclick="closeGallery()" style="font-family:var(--font-display); font-size:0.7rem; letter-spacing:0.2em; color:rgba(255,255,255,0.6); background:none; border:none; cursor:pointer; padding:4px 0;">닫기</button>
+			</div>
+			<div style="flex:1; background:white; border-radius:2px; overflow:hidden;">
+				<iframe id="gallery-frame" src="" class="w-full h-full border-none"></iframe>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
