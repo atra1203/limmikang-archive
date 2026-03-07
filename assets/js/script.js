@@ -100,5 +100,24 @@ document.addEventListener('DOMContentLoaded', function () {
             openMobileNav();
         }
     });
+});
+
+// ========================================
+// 🎨 랜덤 배경 이미지
+// ========================================
+document.addEventListener('DOMContentLoaded', function () {
+
+    const bgImages = [
+        "../homeimg/background_texture.jpg",
+        "../homeimg/background_texture_1.jpg",
+        "../homeimg/background_texture_2.jpg",
+        "../homeimg/background_texture_3.jpg",
+        "../homeimg/background_texture_4.jpg"
+    ];
+
+    const randomBg = bgImages[Math.floor(Math.random() * bgImages.length)];
+
+    document.body.style.backgroundImage =
+        "linear-gradient(rgba(250,249,247,0.90), rgba(250,249,247,0.90)), url('" + randomBg + "')";
 
 });
